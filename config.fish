@@ -1,0 +1,193 @@
+# vim all the things
+set -U EDITOR vim
+
+# Paths
+set -gx PATH $PATH ~/bin
+set -gx PATH $PATH "/Applications/Postgres.app/Contents/Versions/latest/bin"
+set -gx PATH $PATH "/Users/weiland.p/.nvm/versions/node/v8.11.3/bin"
+
+# Shortcuts
+alias g="git"
+alias c="cd ~/code/; and clear"
+#alias y="yarn"
+
+
+# Scripting
+alias stfu="osascript -e 'set volume output muted true'"
+# Lock the screen (when going AFK)
+alias lock="pmset sleepnow"
+alias afk="open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"
+alias logout="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec $SHELL -l"
+alias ql="qlmanage -p 2>/dev/null"
+alias preview='groff -Tps > /tmp/tmp.ps; and open -a Preview /tmp/tmp.ps'
+alias wifi="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -s"
+alias wifiname='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep -e "\\bSSID:" | sed -e "s/^.*SSID: //"'
+alias of='open `pwd`'
+alias redo='sudo \!-1'
+alias nowplaying="osascript -e 'tell application \"Spotify\" to name of current track as string'; and echo ' by '; and osascript -e 'tell application \"Spotify\" to artist of current track as string'"
+alias we='/Applications/WebStorm.app/Contents/MacOS/webide'
+alias ports='sudo lsof -i -n -P | grep TCP'
+alias killrails="ps aux | ack 'rails' | head -n1 | awk '{print $2}' | xargs kill"
+alias louder='osascript -e "set volume output volume (output volume of (get volume settings) + 5) --100%"'
+alias piano='osascript -e "set volume output volume (output volume of (get volume settings) + 5) --100%"'
+#alias most_used_commands="history|awk '{print $2}'|awk 'BEGIN {FS=\"|\"} {print $1}'|sort|uniq -c|sort -r"
+alias kantine='node ~/rpo/kantine/read.js'
+alias pulse='node ~/code/pulse-reader/index.js'
+
+# Overrides
+alias ping="ping -c 5"
+#alias vi='vim'
+#funcsave vi
+#alias vim='nvim'
+
+# Aliasing
+#function vim
+#  command nvim $argv
+#end
+alias hi='hicat'
+alias :q='exit'
+#alias ...="../.."
+#alias ....="../../.."
+#alias .....="../../../.."
+
+# Customizations
+alias la="ls -all -tr"
+#alias la="ls -laF $colorflag"
+alias cppcompile='c++ -std=c++11 -stdlib=libc++'
+
+# Git stuff
+abbr -a ga 'git add'
+alias gc='git commit -v'
+alias gd='git diff'
+abbr -a gl 'git pull'
+abbr -a glr 'git pull --rebase'
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+abbr -a gp 'git push'
+alias gs='git status -sb'
+alias gss='git status -sb'
+alias gds='git diff --staged'
+alias gpf='git push --force-with-lease'
+abbr -a gco 'git checkout'
+alias gcm='git checkout master'
+abbr -a gcb 'git checkout -b'
+alias gap='git add -p'
+alias gac='git add -A; and git commit -m'
+alias gcp='git commit -p -v'
+alias plr='git push; and hub pull-request -o'
+
+# node stuff
+alias fucknode="rm -rf node_modules; and rm -rf bower_components"
+alias nodeplz="npm install; and bower install"
+alias omgnode="fucknode; and nodeplz"
+alias fuckingphantom="pkill -9 -f phantomjs"
+
+# elixir stuff
+alias im="iex -S mix"
+alias is="iex -S phoenix.server"
+alias ms="mix phoenix.server"
+alias mt="mix test.watch"
+
+# docker 
+alias d='docker'
+
+# what did i do today and what did i intend to do?
+alias did="vim +'normal Go' +'r!date' ~/did.txt"
+
+# Functions
+
+function tree
+	command tree -aFC -L 4 -I 'node_modules|.git' --dirsfirst --sort=name $argv
+end
+function ftree # flat tree
+	command tree -afFiC -L 4 -I 'node_modules|.git' --dirsfirst --sort=name $argv
+end
+
+function mkd
+	mkdir -p $argv; and cd $argv
+end
+
+function cdf --description 'Change to directory opened by Finder'
+  if [ -x /usr/bin/osascript ]
+    set -l target (osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)')
+    if [ "$target" != "" ]
+      cd "$target"; pwd
+    else
+      echo 'No Finder window found' >&2
+    end
+  end
+end
+
+function server
+	python -m SimpleHTTPServer&
+	sleep 1
+	open http://localhost:8000
+end
+
+function v
+    if count $argv > /dev/null
+        nvim $argv
+    else
+        nvim .
+    end
+end
+
+function work
+  open -a 'Docker'
+  open -a 'PhpStorm'
+  open -a 'Slack'
+  open -a 'Spark'
+  open -a 'Google Chrome'
+  cd ~/rpo/circit/interred_deployment/
+  clear
+end
+
+function other
+  open -a 'Messages'
+  open -a 'Reeder'
+  open /Applications/Tweetbot.localized/Tweetbot.app
+  open -a 'Spotify'
+end
+
+#function ir
+#  #cd ~/rpo/circit/interred_deployment/;
+#  cd ~/rpo/circit/interred_deployment/opt/InterRed/gera/data/webserver/global/php_includes/templates/; and
+#  osascript -e 'tell application "System Events" to key code 17 using command down'; and sleep 1; and # new tab
+#  cd ~/rpo/circit/docker/; and
+#  docker-compose up;
+#  osascript -e 'tell application "System Events" to key code 2 using command down'; and sleep 1; and # veritcal split
+#end
+
+function rr
+  # Activate DrRacket
+  osascript -e 'activate application "DrRacket"';
+  sleep 1
+  # CMD + Shift + E (Revert File in DrRacket)
+  osascript -e 'tell application "System Events" to key code 14 using {command down, shift down}';
+  sleep 1
+  # Run current file (CMD + R)
+  osascript -e 'tell application "System Events" to key code 15 using command down';
+end
+
+function tu
+  cd '/Users/weiland.p/Library/Mobile Documents/com~apple~CloudDocs/Documents/TU Darmstadt'
+end
+
+function wr
+  watchman-make -p $argv --run "racket $argv"
+end
+
+function peek
+  tmux split-window -p 33 "$EDITOR" "$0"
+end
+
+# enable fish vi key bindings
+#fish_vi_key_bindings
+
+# ASDF version manager
+#source ~/.asdf/asdf.fish
+# source ~/.asdf/asdf.fish
+
+#thefuck --alias | source
+# set -g fish_user_paths "/usr/local/opt/node@8/bin" $fish_user_paths
