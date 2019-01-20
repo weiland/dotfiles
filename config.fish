@@ -8,8 +8,6 @@ set -gx PATH $PATH "/Users/weiland.p/.nvm/versions/node/v8.11.3/bin"
 
 # Shortcuts
 alias g="git"
-alias c="cd ~/code/; and clear"
-#alias y="yarn"
 
 
 # Scripting
@@ -38,6 +36,7 @@ alias pulse='node ~/code/pulse-reader/index.js'
 
 # Overrides
 alias ping="ping -c 5"
+alias ls 'exa'
 #alias vi='vim'
 #funcsave vi
 #alias vim='nvim'
@@ -89,7 +88,7 @@ alias is="iex -S phoenix.server"
 alias ms="mix phoenix.server"
 alias mt="mix test.watch"
 
-# docker 
+# docker
 alias d='docker'
 
 # what did i do today and what did i intend to do?
@@ -181,6 +180,9 @@ end
 function peek
   tmux split-window -p 33 "$EDITOR" "$0"
 end
+
+# include grc to colorize generic command output
+source (brew --prefix)/etc/grc.fish
 
 # enable fish vi key bindings
 #fish_vi_key_bindings
