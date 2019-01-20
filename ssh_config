@@ -57,7 +57,7 @@ Host c3
 
 Host *
   AddKeysToAgent yes
-  UseKeychain yes
+  #UseKeychain yes
   IdentityFile ~/.ssh/id_rsa
 
 Host pihome
