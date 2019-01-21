@@ -56,9 +56,14 @@ Host c3
   User pw58cupu
 
 Host *
+  PasswordAuthentication no
+  ChallengeResponseAuthentication no
+  HashKnownHosts yes
+  VisualHostKey yes
   AddKeysToAgent yes
-  #UseKeychain yes
   IdentityFile ~/.ssh/id_rsa
+  # IgnoreUnknown UseKeychain
+  # UseKeychain yes
 
 Host pihome
   HostName 192.168.178.54
