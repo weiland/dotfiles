@@ -183,8 +183,46 @@ function peek
   tmux split-window -p 33 "$EDITOR" "$0"
 end
 
+function toggle-darkmode
+  osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
+end
+
+function iswoi
+  test (wifiname) = "WIFIonICE" && echo "is WIFIonICE"
+end
+
+function woi_usage
+  curl -s 'http://login.wifionice.de/usage_info/'
+end
+
+function woi_login
+  curl 'http://login.wifionice.de/en/' -H 'Cookie: csrf=asdf' --data 'login=true&CSRFToken=asdf&connect='
+end
+
+function woi_logout
+  curl 'http://www.wifionice.de/de/' -H 'Cookie: csrf=jkl' --data 'logout=true&CSRFToken=jkl'
+end
+
+function cap
+ curl -s 'http://captive.apple.com'
+end
+
+function _has_internet
+ cap | grep -q "<BODY>Success"
+end
+
+function has_internet
+ _has_internet && echo "true" || echo "false"
+end
+
+function woi_left
+  echo (woi_usage)"*100" | math | awk '{printf("%d\n",$1 + 0.5)}'
+end
+
 # include grc to colorize generic command output
 source (brew --prefix)/etc/grc.fish
+
+alias ping="grc ping -c 5"
 
 # enable fish vi key bindings
 #fish_vi_key_bindings
