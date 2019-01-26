@@ -17,7 +17,6 @@ alias lock="pmset sleepnow"
 alias afk="open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"
 alias logout="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 # Reload the shell (i.e. invoke as a login shell)
-alias reload="exec $SHELL -l"
 alias ql="qlmanage -p 2>/dev/null"
 alias preview='groff -Tps > /tmp/tmp.ps; and open -a Preview /tmp/tmp.ps'
 alias wifi="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -s"
@@ -33,10 +32,11 @@ alias piano='osascript -e "set volume output volume (output volume of (get volum
 #alias most_used_commands="history|awk '{print $2}'|awk 'BEGIN {FS=\"|\"} {print $1}'|sort|uniq -c|sort -r"
 alias kantine='node ~/rpo/kantine/read.js'
 alias pulse='node ~/code/pulse-reader/index.js'
+alias dl='cd ~/Downloads'
 
 # Overrides
-alias ping="ping -c 5"
 alias ls 'exa'
+#alias wget'curl -O'
 #alias vi='vim'
 #funcsave vi
 #alias vim='nvim'
@@ -95,6 +95,8 @@ alias d='docker'
 alias did="vim +'normal Go' +'r!date' ~/did.txt"
 
 # Functions
+
+abbr -a reload 'exec $SHELL -l'
 
 function tree
 	command tree -aFC -L 4 -I 'node_modules|.git' --dirsfirst --sort=name $argv
@@ -170,7 +172,7 @@ function rr
 end
 
 function tu
-  cd '/Users/weiland.p/Library/Mobile Documents/com~apple~CloudDocs/Documents/TU Darmstadt'
+  cd "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/TU Darmstadt"
 end
 
 function wr
