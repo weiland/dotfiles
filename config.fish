@@ -219,6 +219,18 @@ function woi_left
   echo (woi_usage)"*100" | math | awk '{printf("%d\n",$1 + 0.5)}'
 end
 
+function node-project {
+  git init
+  npx license $(npm get init.license) -o "$(npm get init.author.name)" > LICENSE
+  npx gitignore node
+  # run for external public projects
+  #npx covgen "$(npm get init.author.email)"
+  npm init -y
+  git add -A
+  git commit -m "Initial commit :octocat:"
+  #hub create -p && git push
+}
+
 # include grc to colorize generic command output
 source (brew --prefix)/etc/grc.fish
 
