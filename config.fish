@@ -1,3 +1,5 @@
+set -gx LANG "en_US"
+set -gx LC_ALL "en_US.UTF-8"
 # vim all the things
 set -U EDITOR vim
 
@@ -219,9 +221,9 @@ function woi_left
   echo (woi_usage)"*100" | math | awk '{printf("%d\n",$1 + 0.5)}'
 end
 
-function node-project {
+function node-project
   git init
-  npx license $(npm get init.license) -o "$(npm get init.author.name)" > LICENSE
+  npx license (npm get init.license) -o (npm get init.author.name) > LICENSE
   npx gitignore node
   # run for external public projects
   #npx covgen "$(npm get init.author.email)"
@@ -229,7 +231,7 @@ function node-project {
   git add -A
   git commit -m "Initial commit :octocat:"
   #hub create -p && git push
-}
+end
 
 # include grc to colorize generic command output
 source (brew --prefix)/etc/grc.fish
