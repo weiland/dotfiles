@@ -59,11 +59,11 @@ Host *
   PasswordAuthentication no
   ChallengeResponseAuthentication no
   HashKnownHosts yes
-  VisualHostKey yes
+  #VisualHostKey yes
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_rsa
-  # IgnoreUnknown UseKeychain
-  # UseKeychain yes
+  IgnoreUnknown UseKeychain
+  UseKeychain yes
 
 Host pihome
   HostName 192.168.178.54
