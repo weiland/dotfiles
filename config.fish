@@ -233,6 +233,17 @@ function node-project
   #hub create -p && git push
 end
 
+function study
+  killall Messages 2>/dev/null
+  killall Mail 2>/dev/null
+  killall Things3 2>/dev/null
+  killall Docker 2>/dev/null
+  killall Spotify 2>/dev/null
+  killall Notes 2>/dev/null
+  tu
+  #exit
+end
+
 # include grc to colorize generic command output
 source (brew --prefix)/etc/grc.fish
 
@@ -247,3 +258,4 @@ alias ping="grc ping -c 5"
 
 #thefuck --alias | source
 # set -g fish_user_paths "/usr/local/opt/node@8/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/sphinx-doc/bin" $fish_user_paths
