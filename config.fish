@@ -5,8 +5,11 @@ set -U EDITOR vim
 
 # Paths
 set -gx PATH $PATH ~/bin
-set -gx PATH $PATH "/Applications/Postgres.app/Contents/Versions/latest/bin"
-set -gx PATH $PATH "/Users/weiland.p/.nvm/versions/node/v8.11.3/bin"
+set -gx PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
+set -gx PATH /usr/local/opt/fidnutils/libexec/gnubin $PATH
+#set -gx PATH $PATH /usr/local/opt/gnu-sed/libexec/gnubin
+
+#set -gx PATH $PATH "/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 # Shortcuts
 alias g="git"
