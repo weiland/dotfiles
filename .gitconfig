@@ -1,7 +1,7 @@
 [user]
   name = Pascal Weiland
   email = pasweiland@gmail.com
-	signingkey = B4EDE7DC
+  signingkey = B4EDE7DC
 
 [alias]
   # Shorter commands
@@ -112,8 +112,9 @@
   autocrlf = input
   editor = vim
   trustctime = false
-	excludesfile = /Users/weiland.p/.gitignore_global
-  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+  excludesfile = ~/.gitignore_global
+  whitespace = nowarn
+  #whitespace = space-before-tab,-indent-with-non-tab,trailing-space
   # Real path: /usr/local/Cellar/git/2.12.2/share/git-core/contrib/diff-highlight/diff-highlight
   pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 
@@ -171,13 +172,13 @@
 [merge]
   # Include summaries of merged commits in newly created merge commit messages
   log = true
-	tool = code
-	conflictstyle = diff3
+  tool = code
+  conflictstyle = diff3
   #conflictstyle = diff3
 
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 
 [mergetool "Kaleidoscope"]
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
@@ -189,11 +190,11 @@
 # git diff
 [diff]
   tool = Kaleidoscope
-	colorMoved = zebra
+  colorMoved = zebra
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
@@ -203,13 +204,10 @@
 
 # Git init Templates
 #[init]
-templatedir = ~/.git_templates
+#templatedir = ~/.git_templates
 
-# Pivotal 
-[pivotal]
-  token = 142cc46e8996a3fad7f6a5036bcffc77
-  user = PW
 [rerere]
-	enabled = 1
+  enabled = 1
+
 [status]
-	showUntrackedFiles = all
+  showUntrackedFiles = all
