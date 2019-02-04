@@ -145,7 +145,7 @@ function work
   open -a 'Slack'
   open -a 'Spark'
   open -a 'Google Chrome'
-  cd ~/rpo/circit/interred_deployment/
+  cd ~/rpo/interred_deployment/
   clear
 end
 
@@ -157,10 +157,10 @@ function other
 end
 
 #function ir
-#  #cd ~/rpo/circit/interred_deployment/;
-#  cd ~/rpo/circit/interred_deployment/opt/InterRed/gera/data/webserver/global/php_includes/templates/; and
+#  #cd ~/rpo/interred_deployment/;
+#  cd ~/rpo/interred_deployment/opt/InterRed/gera/data/webserver/global/php_includes/templates/; and
 #  osascript -e 'tell application "System Events" to key code 17 using command down'; and sleep 1; and # new tab
-#  cd ~/rpo/circit/docker/; and
+#  cd ~/rpo/docker/; and
 #  docker-compose up;
 #  osascript -e 'tell application "System Events" to key code 2 using command down'; and sleep 1; and # veritcal split
 #end
