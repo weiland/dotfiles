@@ -180,6 +180,15 @@ function tu
   cd "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/TU Darmstadt"
 end
 
+function tus
+  cd "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/TU Darmstadt/studium/"
+  vim summary.md
+  sleep 1
+  git add -p summary.md
+  sleep 1
+  git commit
+end
+
 function wr
   watchman-make -p $argv --run "racket $argv"
 end
@@ -245,6 +254,20 @@ function study
   killall Notes 2>/dev/null
   tu
   #exit
+end
+
+function hours
+  open ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/RP/StundenPascal(date +"%m").numbers
+  # else cp Preset
+end
+
+# Univerisity stuff
+function sim
+  $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/TU\ Darmstadt/Digitaltechnik/SystemVerilog/bin/sim.mac $argv
+end
+
+function synth
+  $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/TU\ Darmstadt/Digitaltechnik/SystemVerilog/bin/synth.sh $argv
 end
 
 # include grc to colorize generic command output
