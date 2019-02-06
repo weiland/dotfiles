@@ -19,7 +19,7 @@ alias g="git"
 alias stfu="osascript -e 'set volume output muted true'"
 # Lock the screen (when going AFK)
 alias lock="pmset sleepnow"
-alias afk="open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"
+alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
 alias logout="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 # Reload the shell (i.e. invoke as a login shell)
 alias ql="qlmanage -p 2>/dev/null"
