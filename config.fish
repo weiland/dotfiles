@@ -180,6 +180,10 @@ function tu
   cd "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/TU Darmstadt"
 end
 
+function tud
+  cd "$HOME/tud"
+end
+
 function tus
   cd "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/TU Darmstadt/studium/"
   vim summary.md
