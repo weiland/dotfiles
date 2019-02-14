@@ -26,7 +26,7 @@ alias ql="qlmanage -p 2>/dev/null"
 alias preview='groff -Tps > /tmp/tmp.ps; and open -a Preview /tmp/tmp.ps'
 alias wifi="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -s"
 alias wifiname='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep -e "\\bSSID:" | sed -e "s/^.*SSID: //"'
-alias of='open `pwd`'
+alias of="open $PWD"
 alias redo='sudo \!-1'
 alias nowplaying="osascript -e 'tell application \"Spotify\" to name of current track as string'; and echo ' by '; and osascript -e 'tell application \"Spotify\" to artist of current track as string'"
 alias we='/Applications/WebStorm.app/Contents/MacOS/webide'
@@ -45,6 +45,8 @@ alias ls 'exa'
 #alias vi='vim'
 #funcsave vi
 #alias vim='nvim'
+alias ag 'ag --hidden --follow' # search for "hidden" files and follow symlinks
+alias fd 'fd --hidden --follow' # search for "hidden" files and follow symlinks
 
 # Aliasing
 #function vim
@@ -235,6 +237,10 @@ end
 
 function woi_left
   echo (woi_usage)"*100" | math | awk '{printf("%d\n",$1 + 0.5)}'
+end
+
+function safari_reload
+  osascript -e 'tell application "Safari"' -e 'tell its first document' -e 'set its URL to (get its URL)' -e 'end tell' -e 'activate' -e 'end tell'
 end
 
 function node-project
