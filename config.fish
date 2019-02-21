@@ -46,7 +46,7 @@ alias ls 'exa'
 #funcsave vi
 #alias vim='nvim'
 alias ag 'ag --hidden --follow' # search for "hidden" files and follow symlinks
-alias fd 'fd --hidden --follow' # search for "hidden" files and follow symlinks
+# alias fd 'fd --hidden --follow' # search for "hidden" files and follow symlinks
 
 # Aliasing
 #function vim
