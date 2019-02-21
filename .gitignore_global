@@ -1,0 +1,4 @@
+# global gitignore file mainly used on a mac
+.DS_Store
+
+.projectile
