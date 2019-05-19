@@ -54,9 +54,9 @@ alias ag 'ag --hidden --follow' # search for "hidden" files and follow symlinks
 #end
 alias hi='hicat'
 alias :q='exit'
-#alias ...="../.."
-#alias ....="../../.."
-#alias .....="../../../.."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 # Customizations
 alias la="ls -all -tr"
