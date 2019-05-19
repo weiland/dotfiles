@@ -55,6 +55,10 @@ Host c3
   HostName clientssh3.rbg.informatik.tu-darmstadt.de
   User pw58cupu
 
+Host arm
+  HostName clientssh-arm.rbg.informatik.tu-darmstadt.de
+  User pw58cupu
+
 Host *
   PasswordAuthentication no
   ChallengeResponseAuthentication no
@@ -66,6 +70,6 @@ Host *
   UseKeychain yes
 
 Host pihome
-  HostName 192.168.178.54
+  HostName 192.168.178.32
   User pi
   # Password raspberry
