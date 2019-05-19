@@ -299,3 +299,6 @@ alias ping="grc ping -c 5"
 #thefuck --alias | source
 # set -g fish_user_paths "/usr/local/opt/node@8/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/sphinx-doc/bin" $fish_user_paths
+
+# Startup: Add all identities stored in keychain
+/usr/bin/ssh-add -A
