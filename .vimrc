@@ -136,7 +136,7 @@ nnoremap <CR> :noh<CR><CR>
 " own vim settings (TODO move them to .local)
 
 inoremap <leader>; <C-o>A;
-inoremap ;<cr> <down><end>;<cr>
+"inoremap ;<cr> <down><end>;<cr>
 
 " j & k with visual lines
 nnoremap k gk
@@ -245,7 +245,12 @@ augroup vimrcEx
 
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
+
+  " au BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
 augroup END
+
+" Disable adding comment leaader in new line and after hitting <Enter> in Isert mode.
+autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
