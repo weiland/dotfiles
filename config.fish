@@ -270,6 +270,14 @@ function study
   #exit
 end
 
+function arm
+  scp -q $argv arm:tmp/$argv; and ssh arm "source .bash_profile && arm tmp/$argv"
+end
+
+function armpi
+  scp -q $argv pi:tmp/$argv; and ssh pi '/bin/bash -c "source .bash_profile && arm tmp/$argv"'
+end
+
 function hours
   open ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/RP/StundenPascal(date +"%m").numbers
   # else cp Preset
@@ -298,7 +306,8 @@ alias ping="grc ping -c 5"
 
 #thefuck --alias | source
 # set -g fish_user_paths "/usr/local/opt/node@8/bin" $fish_user_paths
-set -g fish_user_paths "/usr/local/opt/sphinx-doc/bin" $fish_user_paths
+#set -g fish_user_paths "/usr/local/opt/sphinx-doc/bin" $fish_user_paths
 
 # Startup: Add all identities stored in keychain
-/usr/bin/ssh-add -A
+# /usr/bin/ssh-add -A
+#set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
