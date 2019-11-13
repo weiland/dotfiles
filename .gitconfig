@@ -158,6 +158,9 @@
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
 
+; [url "ssh://git@git.jkm-marburg.de"]
+;   insteadOf = https://git.jkm-marburg.de
+
 [credential]
   helper = osxkeychain
 
@@ -191,6 +194,7 @@
 [diff]
   tool = Kaleidoscope
   colorMoved = zebra
+	noprefix = true
 
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"

@@ -97,9 +97,12 @@ alias mt="mix test.watch"
 
 # docker
 alias d='docker'
+alias dcr='docker-compose run'
 
 # what did i do today and what did i intend to do?
 alias did="vim +'normal Go' +'r!date' ~/did.txt"
+
+alias ytdl="youtube-dl --restrict-filenames -o '%(title)s.%(ext)s'"
 
 # Functions
 
@@ -133,13 +136,13 @@ function server
 	open http://localhost:8000
 end
 
-function v
-    if count $argv > /dev/null
-        nvim $argv
-    else
-        nvim .
-    end
-end
+# function v
+#     if count $argv > /dev/null
+#         nvim $argv
+#     else
+#         nvim .
+#     end
+# end
 
 function work
   open -a 'Docker'
@@ -296,6 +299,7 @@ end
 source (brew --prefix)/etc/grc.fish
 
 alias ping="grc ping -c 5"
+alias nmap="grc nmap"
 
 # enable fish vi key bindings
 #fish_vi_key_bindings

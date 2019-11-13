@@ -207,6 +207,7 @@ Plug 'lumiliet/vim-twig', { 'for': 'twig' }
 "Plug 'tpope/vim-rails'
 "Plug 'thoughtbot/vim-rspec'
 "Plug 'kchmck/vim-coffee-script'
+Plug 'ARM9/arm-syntax-vim'
 
 Plug 'janko-m/vim-test'
 Plug 'vim-scripts/ctags.vim'
