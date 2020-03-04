@@ -219,6 +219,30 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'reedes/vim-pencil', { 'for': 'markdown' }
 
+" Pandoc support for Markdown
+" Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
+
+" LaTeX
+Plug 'lervag/vimtex', { 'for': 'tex' }
+let g:tex_flavor='latex'
+let g:vimtex_view_method='skim'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+Plug '907th/vim-auto-save', { 'for': 'tex' }
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_events = ["InsertLeave"]
+
+" Spelling
+setlocal spell
+set spelllang=en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+" disable spelling
+set nospell
+
 call plug#end()
 
 augroup vimrcEx
@@ -234,11 +258,11 @@ augroup vimrcEx
 
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile *.md set filetype=markdown.pandoc
   autocmd BufRead,BufNewFile *.hamlc set filetype=haml
 
   " Enable spellchecking for Markdown
-  autocmd FileType markdown setlocal spell
+  " autocmd FileType markdown setlocal spell
 
   " Automatically wrap at 80 characters and spell check git commit messages
   autocmd FileType gitcommit setlocal textwidth=80
