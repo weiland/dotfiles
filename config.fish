@@ -23,6 +23,7 @@ alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/M
 alias logout="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 # Reload the shell (i.e. invoke as a login shell)
 alias ql="qlmanage -p 2>/dev/null"
+# alias qlf='qlmanage -p "$@" > /dev/null'
 alias preview='groff -Tps > /tmp/tmp.ps; and open -a Preview /tmp/tmp.ps'
 alias wifi="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -s"
 alias wifiname='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep -e "\\bSSID:" | sed -e "s/^.*SSID: //"'
@@ -57,6 +58,8 @@ alias :q='exit'
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+
+alias cpr='rsync -ah --progress'
 
 # Customizations
 alias la="ls -all -tr"
@@ -104,6 +107,9 @@ alias did="vim +'normal Go' +'r!date' ~/did.txt"
 
 alias ytdl="youtube-dl --restrict-filenames -o '%(title)s.%(ext)s'"
 
+# mostly helpful for OpenMP
+# abbr -a gcc 'gcc-9'
+
 # Functions
 
 abbr -a reload 'exec $SHELL -l'
@@ -128,6 +134,10 @@ function cdf --description 'Change to directory opened by Finder'
       echo 'No Finder window found' >&2
     end
   end
+end
+
+function zws
+    echo -n '\u200D' | pbcopy
 end
 
 function server
@@ -315,3 +325,9 @@ alias nmap="grc nmap"
 # Startup: Add all identities stored in keychain
 # /usr/bin/ssh-add -A
 #set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+# rbenv ruby
+status --is-interactive; and source (rbenv init -|psub)
+
+set --universal fish_user_paths $fish_user_paths ~/.rbenv/shims
