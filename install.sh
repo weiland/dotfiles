@@ -32,9 +32,19 @@ create_symlink '.gitconfig'
 create_symlink '.gitignore_global'
 create_symlink '.tmux.conf'
 create_symlink '.vimrc'
-create_symlink '.mbsyncrc'
 create_symlink '.curlrc'
 create_symlink '.gemrc'
+create_symlink '.agignore'
+create_symlink '.npmrc'
+
+create_symlink '.mbsyncrc'
+create_symlink '.muttrc'
+create_symlink '.notmuch-config'
+
+create_symlink '.netrc'
+create_symlink '.spacemacs'
+create_symlink '.nvm'
+create_symlink '.latexmkrc'
 
 # remove welcome message
 if [ ! -f "$HOME/.hushlogin" ]; then
