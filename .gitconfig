@@ -1,7 +1,7 @@
 [user]
   name = Pascal Weiland
-  email = pasweiland@gmail.com
-  signingkey = B4EDE7DC
+  email = weiland@users.noreply.github.com
+  signingkey = DCBE474CB9955FDD372FD3F1B924142E8F592971
 
 [alias]
   # Shorter commands
@@ -215,3 +215,7 @@
 
 [status]
   showUntrackedFiles = all
+[commit]
+  gpgsign = true
+[gpg]
+	program = gpg2
