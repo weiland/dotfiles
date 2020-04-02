@@ -86,12 +86,6 @@ alias gac='git add -A; and git commit -m'
 alias gcp='git commit -p -v'
 alias plr='git push; and hub pull-request -o'
 
-# node stuff
-alias fucknode="rm -rf node_modules; and rm -rf bower_components"
-alias nodeplz="npm install; and bower install"
-alias omgnode="fucknode; and nodeplz"
-alias fuckingphantom="pkill -9 -f phantomjs"
-
 # elixir stuff
 alias im="iex -S mix"
 alias is="iex -S phoenix.server"
