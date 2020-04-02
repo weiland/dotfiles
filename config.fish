@@ -66,6 +66,8 @@ alias la="ls -all -tr"
 #alias la="ls -laF $colorflag"
 alias cppcompile='c++ -std=c++11 -stdlib=libc++'
 
+abbr -a gpg gpg2
+
 # Git stuff
 abbr -a ga 'git add'
 alias gc='git commit -v'
@@ -106,7 +108,8 @@ alias ytdl="youtube-dl --restrict-filenames -o '%(title)s.%(ext)s'"
 
 # Functions
 
-abbr -a reload 'exec $SHELL -l'
+# abbr -a reload 'exec $SHELL -l'
+abbr -a reload 'source ~/.config/fish/config.fish'
 
 function tree
 	command tree -aFC -L 4 -I 'node_modules|.git' --dirsfirst --sort=name $argv
