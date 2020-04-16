@@ -3,7 +3,13 @@
   email = weiland@users.noreply.github.com
   signingkey = DCBE474CB9955FDD372FD3F1B924142E8F592971
 
+[user "rp"]
+  name = Pascal Weiland
+  email = pascal.weiland@rp-digital.de
+  signingkey = 967BEAF7AEC540D6180906DA7D4EE21534562F25
+
 [alias]
+  identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
   # Shorter commands
   a  = commit --amend
   br = branch
