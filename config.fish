@@ -1,15 +1,20 @@
 set -gx LANG "en_US"
 set -gx LC_ALL "en_US.UTF-8"
 # vim all the things
-set -U EDITOR vim
+set -gx EDITOR vim
 
 # Paths
+# set -gx RUBY_HOME /usr/local/opt/ruby/bin
+# set -gx GEM_PATH ~/.gem/ruby/2.7.0
+# set -gx PATH $PATH $RUBY_HOME $GEM_PATH
 set -gx PATH $PATH ~/bin
 set -gx PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
 set -gx PATH /usr/local/opt/fidnutils/libexec/gnubin $PATH
 #set -gx PATH $PATH /usr/local/opt/gnu-sed/libexec/gnubin
 
 #set -gx PATH $PATH "/Applications/Postgres.app/Contents/Versions/latest/bin"
+
+# set -gx CMAKE_C_COMPILER "gcc-9"
 
 # Shortcuts
 alias g="git"
@@ -83,7 +88,7 @@ abbr -a gpf 'git push --force-with-lease'
 abbr -a gco 'git checkout'
 alias gcm='git checkout master'
 abbr -a gcb 'git checkout -b'
-alias gap='git add -p'
+abbr -a gap 'git add -p'
 alias gac='git add -A; and git commit -m'
 alias gcp='git commit -p -v'
 alias plr='git push; and hub pull-request -o'
@@ -95,8 +100,12 @@ alias ms="mix phoenix.server"
 alias mt="mix test.watch"
 
 # docker
-alias d='docker'
 alias dcr='docker-compose run'
+
+function d
+  cd ~/code/dotfiles
+  vim +CtrlP
+end
 
 # what did i do today and what did i intend to do?
 alias did="vim +'normal Go' +'r!date' ~/did.txt"
@@ -257,6 +266,15 @@ function safari_reload
   osascript -e 'tell application "Safari"' -e 'tell its first document' -e 'set its URL to (get its URL)' -e 'end tell' -e 'activate' -e 'end tell'
 end
 
+function k
+  vim ~/code/knowledge/$argv.md
+end
+
+function kk
+  cd ~/code/knowledge
+  vim $argv.md
+end
+
 function node-project
   git init
   npx license (npm get init.license) -o (npm get init.author.name) > LICENSE
@@ -264,6 +282,8 @@ function node-project
   # run for external public projects
   #npx covgen "$(npm get init.author.email)"
   npm init -y
+  touch readme.md
+  echo '#' (basename (pwd))\n >> readme.md
   git add -A
   git commit -m "Initial commit :octocat:"
   #hub create -p && git push
@@ -322,9 +342,17 @@ alias nmap="grc nmap"
 # Startup: Add all identities stored in keychain
 # /usr/bin/ssh-add -A
 #set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+# set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
 # rbenv ruby
 status --is-interactive; and source (rbenv init -|psub)
 
-set --universal fish_user_paths $fish_user_paths ~/.rbenv/shims
+# set -x fish_user_paths $fish_user_paths ~/.rbenv/shims
+
+# set -x fish_user_paths $fish_user_paths $RUBY_HOME
+
+# attempts to fix rbenv installations
+# set RUBY_CONFIGURE_OPTS --with-openssl-dir=(brew --prefix openssl@1.1) --with-readline-dir=(brew --prefix readline)
+# set RUBY_CONFIGURE_OPTS --with-readline-dir=(brew --prefix readline)
+# set RUBY_CONFIGURE_OPTS --with-openssl-dir=(brew --prefix openssl@1.1)
+# export RUBY_CONFIGURE_OPTS="--with-openssl-dir="(brew --prefix openssl@1.1)" --with-readline-dir="(brew --prefix readline)
