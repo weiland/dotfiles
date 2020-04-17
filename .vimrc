@@ -157,12 +157,14 @@ Plug 'mhartington/oceanic-next'
 Plug 'rakr/vim-one'
 "Plug 'rakr/vim-two-firewatch'
 "Plug 'endel/vim-github-colorscheme'
+Plug 'nanotech/jellybeans.vim'
 
 " Navigatoin & Files
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'bling/vim-airline'
 "Plug 'vim-airline/vim-airline-themes' " My theme has alreayd an airline theme
@@ -375,7 +377,8 @@ if(has('nvim'))
   "let g:airline_theme='one'
   let g:one_allow_italics = 1
 else
-  colorscheme OceanicNext
+  " colorscheme OceanicNext
+  colorscheme jellybeans
   "let g:airline_theme='oceanicnext'
   "colorscheme github
   "colorscheme two-firewatch
