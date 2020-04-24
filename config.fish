@@ -198,7 +198,7 @@ function rr
 end
 
 function tu
-  cd "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/TU Darmstadt"
+  cd "$HOME/Documents/TU Darmstadt"
 end
 
 function tud
@@ -206,7 +206,7 @@ function tud
 end
 
 function tus
-  cd "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/TU Darmstadt/studium/"
+  cd "$HOME/Documents/TU Darmstadt/studium/"
   vim summary.md
   sleep 1
   git add -p summary.md
@@ -267,12 +267,12 @@ function safari_reload
 end
 
 function k
-  vim ~/code/knowledge/$argv.md
+  cd ~/code/knowledge
+  vim +CtrlP
 end
 
 function kk
-  cd ~/code/knowledge
-  vim $argv.md
+  vim ~/code/knowledge/$argv.md
 end
 
 function node-project
@@ -356,3 +356,8 @@ status --is-interactive; and source (rbenv init -|psub)
 # set RUBY_CONFIGURE_OPTS --with-readline-dir=(brew --prefix readline)
 # set RUBY_CONFIGURE_OPTS --with-openssl-dir=(brew --prefix openssl@1.1)
 # export RUBY_CONFIGURE_OPTS="--with-openssl-dir="(brew --prefix openssl@1.1)" --with-readline-dir="(brew --prefix readline)
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
