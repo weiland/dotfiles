@@ -47,6 +47,7 @@ alias dl='cd ~/Downloads'
 
 # Overrides
 alias ls 'exa'
+alias ll 'exa -lh'
 #alias wget'curl -O'
 #alias vi='vim'
 #funcsave vi
