@@ -359,3 +359,9 @@ status --is-interactive; and source (rbenv init -|psub)
 # !! Contents within this block are managed by 'conda init' !!
 # eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
+
+function activate_conda
+  eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
+end
+
+# sh /Users/pw/.nix-profile/etc/profile.d/nix.sh
