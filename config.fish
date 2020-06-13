@@ -48,7 +48,7 @@ alias dl='cd ~/Downloads'
 
 # Overrides
 alias ls 'exa'
-alias ll 'exa -lh'
+alias ll 'exa -l --sort newest'
 #alias wget'curl -O'
 #alias vi='vim'
 #funcsave vi
@@ -69,7 +69,7 @@ alias .....="cd ../../../.."
 alias cpr='rsync -ah --progress'
 
 # Customizations
-alias la="ls -all -tr"
+alias la='exa -la'
 #alias la="ls -laF $colorflag"
 alias cppcompile='c++ -std=c++11 -stdlib=libc++'
 
