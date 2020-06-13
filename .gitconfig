@@ -8,7 +8,19 @@
   email = pascal.weiland@rp-digital.de
   signingkey = 967BEAF7AEC540D6180906DA7D4EE21534562F25
 
+[user "gris"]
+  name = Pascal Weiland
+  email = pascal.weiland@gris.informatik.tu-darmstadt.de
+  signingkey = 78C5389B27DE1C5BA9DA6A0A9A65545EA16BCB16
+
+[user "gmail"]
+  name = Pascal Weiland
+  email = pasweiland@gmail.com
+  signingkey = 271328BDEE7C739BFFA277831F98F7DA182E88B5
+
+
 [alias]
+  new = !git init && git symbolic-ref HEAD refs/heads/main
   identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
   # Shorter commands
   a  = commit --amend
@@ -215,9 +227,10 @@
 [difftool]
   prompt = false
 
-# Git init Templates
-#[init]
-#templatedir = ~/.git_templates
+# repo template using `main` as main branch
+[init]
+templateDir = ~/code/dotfiles/git-templates/
+
 
 [rerere]
   enabled = 1
