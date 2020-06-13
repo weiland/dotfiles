@@ -10,6 +10,7 @@ set -gx EDITOR vim
 set -gx PATH $PATH ~/bin
 set -gx PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
 set -gx PATH /usr/local/opt/fidnutils/libexec/gnubin $PATH
+set -gx GOPATH ~/code/go
 #set -gx PATH $PATH /usr/local/opt/gnu-sed/libexec/gnubin
 
 #set -gx PATH $PATH "/Applications/Postgres.app/Contents/Versions/latest/bin"
