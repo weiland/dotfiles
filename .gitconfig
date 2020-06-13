@@ -137,10 +137,12 @@
   whitespace = nowarn
   #whitespace = space-before-tab,-indent-with-non-tab,trailing-space
   # Real path: /usr/local/Cellar/git/2.12.2/share/git-core/contrib/diff-highlight/diff-highlight
-  pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+  ; pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+  pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
 
 [interactive]
-  diffFilter = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
+  ; diffFilter = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
+  diffFilter = delta --color-only
 
 [color "diff-highlight"]
   oldNormal = red
@@ -240,4 +242,4 @@ templateDir = ~/code/dotfiles/git-templates/
 [commit]
   gpgsign = true
 [gpg]
-	program = gpg2
+  program = gpg2
