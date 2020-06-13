@@ -199,12 +199,8 @@ function rr
   osascript -e 'tell application "System Events" to key code 15 using command down';
 end
 
-function tu
-  cd "$HOME/Documents/TU Darmstadt"
-end
-
 function tud
-  cd "$HOME/tud"
+  cd "$HOME/Documents/TU Darmstadt"
 end
 
 function tus
@@ -325,10 +321,10 @@ function synth
 end
 
 # include grc to colorize generic command output
-source (brew --prefix)/etc/grc.fish
+# source (brew --prefix)/etc/grc.fish
 
-alias ping="grc ping -c 5"
-alias nmap="grc nmap"
+alias ping="ping -c 5"
+alias nmap="nmap"
 
 # enable fish vi key bindings
 #fish_vi_key_bindings
