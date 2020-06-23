@@ -364,4 +364,7 @@ function activate_conda
   eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
 end
 
+# use starship Prompt
+starship init fish | source
+
 # sh /Users/pw/.nix-profile/etc/profile.d/nix.sh
