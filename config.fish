@@ -320,6 +320,10 @@ function synth
   $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/TU\ Darmstadt/Digitaltechnik/SystemVerilog/bin/synth.sh $argv
 end
 
+function speed_up_timemachine
+  sysctl debug.lowpri_throttle_enabled=0
+end
+
 # include grc to colorize generic command output
 # source (brew --prefix)/etc/grc.fish
 
