@@ -229,9 +229,8 @@
 [difftool]
   prompt = false
 
-# repo template using `main` as main branch
 [init]
-templateDir = ~/code/dotfiles/git-templates/
+  defaultBranch = main
 
 
 [rerere]
