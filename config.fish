@@ -233,11 +233,19 @@ function woi_usage
 end
 
 function woi_login
+  curl -v 'http://10.101.64.10/en/' -H 'Cookie: csrf=asdf' --data 'login=true&CSRFToken=asdf'
+end
+
+function woi_login_with_domain
   curl 'http://login.wifionice.de/en/' -H 'Cookie: csrf=asdf' --data 'login=true&CSRFToken=asdf&connect='
 end
 
+function wl
+  open 'http://10.101.64.10/en/'
+end
+
 function woi_logout
-  curl 'http://www.wifionice.de/de/' -H 'Cookie: csrf=jkl' --data 'logout=true&CSRFToken=jkl'
+  curl 'http://login.wifionice.de/de/' -H 'Cookie: csrf=jkl' --data 'logout=true&CSRFToken=jkl'
 end
 
 function cap
