@@ -224,6 +224,10 @@ function toggle-darkmode
   osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
 end
 
+function iswad
+  test (wifiname) = 'WIFI@DB' && echo 'is WIFI@DB'
+end
+
 function iswoi
   test (wifiname) = "WIFIonICE" && echo "is WIFIonICE"
 end
@@ -260,8 +264,12 @@ function has_internet
  _has_internet && echo "true" || echo "false"
 end
 
-function woi_left
+function woi_used
   echo (woi_usage)"*100" | math | awk '{printf("%d\n",$1 + 0.5)}'
+end
+
+function woi_left
+  echo "100-"(woi_used) | math
 end
 
 function sncf_login
