@@ -27,10 +27,8 @@ trim_trailing_whitespace = false
 indent_style = tab
 `;
 const giContent = `node_modules
-
 .DS_Store
 npm-debug.log*
-.idea
 `;
 const gaContent = `* text=auto`;
 const erContent = `{
@@ -78,7 +76,7 @@ const nrContent = 'lts/erbium'; // Version 12
 const liContent = `
 The ISC License (ISC)
 
-Copyright (c) ${(new Date()).getFullYear()}, P Weiland
+Copyright (c) ${(new Date()).getFullYear()}, ${licenseName}
 
 Permission to use, copy, modify, and/or distribute this software for
 any purpose with or without fee is hereby granted, provided that the
@@ -136,8 +134,12 @@ writeFileSync('.nvmrc', nrContent);
 // run(`npx license ISC -n '${name}' -e '${email}'`);
 writeFileSync('license.md', liContent);
 
-writeFileSync('readme.md', `# ${projectName} 
+writeFileSync('readme.md', `# ${projectName}
 `);
+
+run('git init');
+run('git add -A');
+// run('git commit -m ":octocat: Initial commit"');
 
 module.exports = {
   name: prompt('package name', projectName, (name) => {
@@ -156,10 +158,5 @@ module.exports = {
   homepage: `https://github.com/${gitHubUsername}/${projectName}#readme`,
   bugs: `https://github.com/${gitHubUsername}/${projectName}/issues`,
   license: 'ISC',
-  repository: prompt('github repository url', `https://github.com/${gitHubUsername}/${projectName}`, (url) => {
-    run('git init');
-    run('git add -A');
-    // run('git commit -m ":octocat: Initial commit"');
-    return url;
-  }),
+  repository: prompt('github repository url', `https://github.com/${gitHubUsername}/${projectName}`),
 }
