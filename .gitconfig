@@ -101,10 +101,6 @@
             fi \
           }; f"
 
-[apply]
-  # Detect whitespace errors when applying a patch
-  whitespace = fix
-
 [color]
   ui = auto
 
@@ -134,7 +130,7 @@
   editor = vim
   trustctime = false
   excludesfile = ~/.gitignore_global
-  whitespace = nowarn
+  ; whitespace = nowarn
   #whitespace = space-before-tab,-indent-with-non-tab,trailing-space
   # Real path: /usr/local/Cellar/git/2.12.2/share/git-core/contrib/diff-highlight/diff-highlight
   ; pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
