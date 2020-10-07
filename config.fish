@@ -17,6 +17,8 @@ set -gx GOPATH ~/code/go
 
 # set -gx CMAKE_C_COMPILER "gcc-9"
 
+set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --hidden'
+
 # Shortcuts
 alias g="git"
 
@@ -52,9 +54,9 @@ alias ll 'exa -l --sort newest'
 #alias wget'curl -O'
 #alias vi='vim'
 #funcsave vi
-#alias vim='nvim'
-alias ag 'ag --hidden --follow' # search for "hidden" files and follow symlinks
-# alias fd 'fd --hidden --follow' # search for "hidden" files and follow symlinks
+alias vim 'nvim'
+alias ag 'fg --hidden --follow' # search for "hidden" files and follow symlinks
+alias fd 'fd --hidden --follow' # search for "hidden" files and follow symlinks
 
 # Aliasing
 #function vim
