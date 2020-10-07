@@ -5,15 +5,12 @@
 ```sh
 # prepare directory
 mkdir -p ~/code
-cd ~/code
 
 # clone
-git clone https://github.com/weiland/dotfiles
+git clone https://github.com/weiland/dotfiles ~/code/dotfiles
+cd ~/code/dotfiles
 
-# verify installation scriot
-cat install.sh
-
-# link dotfiles
-sh install.sh
+# link dotfiles (using GNU stow)
+stow -v -t $HOME fish neovim tmux
 ```
 

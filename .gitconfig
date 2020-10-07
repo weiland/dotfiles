@@ -127,7 +127,7 @@
 [core]
   attributesfile = ~/.gitattributes
   autocrlf = input
-  editor = vim
+  editor = nvim
   trustctime = false
   excludesfile = ~/.gitignore_global
   ; whitespace = nowarn

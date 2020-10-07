@@ -1,0 +1,32 @@
+{
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.colorSupport": true,
+  "diagnostic.virtualText": true,
+  "suggest.triggerAfterInsertEnter": true,
+
+  "languageserver": {
+  },
+
+  "diagnostic.warningSign": "⚡",
+  "diagnostic.errorSign": "❌",
+  "diagnostic.hintSign": "💡",
+  "diagnostic.infoSign": "⚠️",
+  "diagnostic.enable": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "Markdown",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "html",
+    "rust"
+  ],
+  "javascript.suggestionActions.enabled": false,
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
+  "prettier.singleQuote": true,
+  "prettier.eslintIntegration": true,
+  "prettier.stylelintIntegration": false,
+  "prettier.disableSuccessMessage": true,
+  "suggest.removeDuplicateItems": true,
+  "coc.source.emoji.filetypes": ["markdown", "gitcommit"]
+}

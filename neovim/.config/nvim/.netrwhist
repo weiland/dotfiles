@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/Users/pw/code/dotfiles/neovim/.config/nvim'
+let g:netrw_dirhist_7='/Users/pw/Documents/TU Darmstadt/VCP/scsc/model_interface/src'
+let g:netrw_dirhist_6='/Users/pw/Documents/TU Darmstadt/VCP/scsc/model_interface'
+let g:netrw_dirhist_5='/Users/pw/Documents/TU Darmstadt/VCP/scsc/model_interface/src'
+let g:netrw_dirhist_4='/Users/pw/Documents/TU Darmstadt/VCP/scsc/model_interface'
+let g:netrw_dirhist_3='/Users/pw/code/dotfiles/neovim/.config/nvim'
+let g:netrw_dirhist_2='/Users/pw/code/dotfiles/neovim/.config/nvim/plugin'
+let g:netrw_dirhist_1='/Users/pw/code/dotfiles/neovim/.config/nvim'
