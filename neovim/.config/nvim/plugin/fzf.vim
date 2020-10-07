@@ -2,8 +2,7 @@ let g:fzf_command_prefix = 'Fzf'
 nnoremap <Leader>b :FzfBuffers<CR>
 nnoremap <Leader>h :FzfHistory<CR>
 
-" replace ctrl-p command
-nnoremap <C-p> :Files<cr>
+" nnoremap <C-p> :Files<cr> " replace ctrl-p command
 
 let g:fzf_files_options =
   \ '--reverse ' .
