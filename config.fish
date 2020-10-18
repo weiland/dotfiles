@@ -77,6 +77,8 @@ alias cppcompile='c++ -std=c++11 -stdlib=libc++'
 
 abbr -a gpg gpg2
 
+abbr -a npx 'npm exec --'
+
 # Git stuff
 abbr -a ga 'git add'
 alias gc='git commit -v'
