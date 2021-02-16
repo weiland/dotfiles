@@ -64,3 +64,9 @@ modified = "📝 "
 staged = '[++\($count\)](green)'
 renamed = "👅"
 deleted = "🗑"
+
+[username]
+disabled = true
+
+[hostname]
+disabled = true
