@@ -11,6 +11,6 @@ git clone https://github.com/weiland/dotfiles ~/code/dotfiles
 cd ~/code/dotfiles
 
 # link dotfiles (using GNU stow)
-stow -v -t $HOME fish neovim tmux
+stow -v -t $HOME fish starship git nvim ssh tmux curl
 ```
 
