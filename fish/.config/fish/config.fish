@@ -4,6 +4,7 @@ set -gx EDITOR vim
 
 set -gx VOLTA_HOME ~/.local/share/volta
 
+fish_add_path ~/.local/bin
 fish_add_path -ga $VOLTA_HOME/bin
 fish_add_path -a /opt/homebrew/sbin
 
