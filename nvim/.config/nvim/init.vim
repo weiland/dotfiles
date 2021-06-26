@@ -251,6 +251,12 @@ set novisualbell
 set modelines=0
 set nomodeline
 
+" Return to last edit position when opening files (instead of relativenumbers)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
 " Use vims navigator in
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
