@@ -74,11 +74,11 @@ abbr ytdl "youtube-dl --restrict-filenames -o '%(title)s.%(ext)s'"
 abbr -a reload 'source ~/.config/fish/config.fish'
 
 function tree
-	command exa --tree $argv
+  command exa --tree --all $argv
 end
 
 function mkd
-	mkdir -p $argv; and cd $argv
+  mkdir -p $argv; and cd $argv
 end
 
 function cdf --description 'Change to directory opened by Finder'
