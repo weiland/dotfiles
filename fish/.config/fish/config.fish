@@ -189,6 +189,9 @@ function study
   #exit
 end
 
+function activate_conda
+  eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
+end
 
 # use starship Prompt
 if command -v starship > /dev/null
@@ -201,3 +204,4 @@ end
 
 # sh /Users/pw/.nix-profile/etc/profile.d/nix.sh
 #fish_vi_key_bindings
+
