@@ -10,7 +10,7 @@ fish_add_path -a /opt/homebrew/sbin
 
 #set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --hidden'
 
-set -gx export GPG_TTY (tty)
+set -gx GPG_TTY (tty)
 
 set fish_greeting
 
