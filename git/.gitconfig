@@ -7,7 +7,7 @@
 [user "rp"]
   name = Pascal Weiland
   email = pascal.weiland@rp-digital.de
-  signingkey = 967BEAF7AEC540D6180906DA7D4EE21534562F25
+  signingkey = 34562F25
 
 [user "gris"]
   name = Pascal Weiland
@@ -17,7 +17,7 @@
 [user "gmail"]
   name = Pascal Weiland
   email = pasweiland@gmail.com
-  signingkey = 271328BDEE7C739BFFA277831F98F7DA182E88B5
+  signingkey = 182E88B5
 
 [alias]
   identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
