@@ -4,13 +4,15 @@ set -gx EDITOR vim
 
 set -gx VOLTA_HOME ~/.local/share/volta
 
+set RECENTTRACKS ~/Downloads/recenttracks-mo_ceol-1628425205.csv
+
 fish_add_path ~/.local/bin
 fish_add_path -ga $VOLTA_HOME/bin
 fish_add_path -a /opt/homebrew/sbin
 
 #set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --hidden'
 
-#set -gx GPG_TTY (tty) # using the mac gpg agent instead
+set -gx GPG_TTY (tty) # using the mac gpg agent instead (does not work yet)
 
 set fish_greeting
 
