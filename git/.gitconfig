@@ -92,7 +92,7 @@
   gpgsign = true
 
 [gpg]
-	program = /opt/homebrew/bin/gpg
+  program = gpg
 
 [pretty]
   custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"

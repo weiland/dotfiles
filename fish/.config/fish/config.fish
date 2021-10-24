@@ -4,7 +4,7 @@ set -gx EDITOR vim
 
 set -gx VOLTA_HOME ~/.local/share/volta
 
-set RECENTTRACKS ~/Downloads/recenttracks-mo_ceol-1628425205.csv
+set RECENTTRACKS ~/Downloads/recenttracks-mo_ceol-1632382601.csv
 
 fish_add_path ~/.local/bin
 fish_add_path -ga $VOLTA_HOME/bin
