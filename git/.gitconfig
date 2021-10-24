@@ -92,7 +92,7 @@
   gpgsign = true
 
 [gpg]
-  program = gpg
+	program = /opt/homebrew/bin/gpg
 
 [pretty]
   custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
@@ -120,4 +120,8 @@
   added = green reverse
   changed = yellow reverse
   untracked = red reverse
+
+
+; [includeIf "gitdir:~/travail/"]
+  ; path = ~/.travail.gitconfig
 

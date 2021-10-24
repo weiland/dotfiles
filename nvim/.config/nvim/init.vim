@@ -64,6 +64,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Languages
   " Plug 'sheerun/vim-polyglot' " could do most of it
   Plug 'vim-ruby/vim-ruby',    { 'for': 'ruby' }
+  Plug 'dag/vim-fish',    { 'for': 'fish' }
   Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
   Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
   Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
