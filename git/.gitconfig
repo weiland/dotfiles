@@ -2,7 +2,7 @@
 [user]
   name = Pascal Weiland
   email = weiland@users.noreply.github.com
-  signingkey = 8F592971
+  signingkey = ~/.ssh/id_ed25519.pub
 
 [user "rp"]
   name = Pascal Weiland
