@@ -2,7 +2,7 @@
 [user]
   name = Pascal Weiland
   email = weiland@users.noreply.github.com
-  signingkey = ~/.ssh/id_ed25519.pub
+  signingkey = 8F592971
 
 [user "rp"]
   name = Pascal Weiland
@@ -92,8 +92,7 @@
   gpgsign = true
 
 [gpg]
-  format = ssh
-  ; program = gpg
+  program = gpg
 
 [pretty]
   custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
