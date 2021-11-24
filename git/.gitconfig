@@ -121,6 +121,9 @@
   changed = yellow reverse
   untracked = red reverse
 
+ [help]
+  autocorrect = prompt
+
 
 ; [includeIf "gitdir:~/travail/"]
   ; path = ~/.travail.gitconfig
