@@ -34,12 +34,10 @@ $custom\
 $line_break\
 $jobs\
 $battery\
-$time\
 $status\
 $character"""
 
-truncation_length = 6
-truncate_to_repo = false
+right_format = "$time"
 
 [battery]
 full_symbol = "🔋"
@@ -70,3 +68,8 @@ disabled = true
 
 [hostname]
 disabled = true
+
+[time]
+disabled = false
+format = '[\[ $time \]]($style) '
+time_format = "%T"
