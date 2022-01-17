@@ -4,6 +4,8 @@
   # use home-manager
   # imports = [ <home-manager/nix-darwin> ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   # macOS specific packages

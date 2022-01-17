@@ -207,6 +207,10 @@ if command -v zoxide > /dev/null
   zoxide init fish | source
 end
 
+if command -v any-nix-shell > /dev/null
+  any-nix-shell fish --info-right | source
+end
+
 # sh /Users/pw/.nix-profile/etc/profile.d/nix.sh
 #fish_vi_key_bindings
 

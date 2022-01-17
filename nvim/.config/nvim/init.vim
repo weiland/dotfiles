@@ -68,6 +68,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
   Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
   Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
+  Plug 'LnL7/vim-nix', { 'for': 'nix' }
   "Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
   Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
 
