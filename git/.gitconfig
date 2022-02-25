@@ -65,7 +65,7 @@
 [merge]
   log = true
   tool = code
-  conflictstyle = diff3
+  conflictStyle = zdiff3
 
 [mergetool]
   prompt = false
@@ -128,3 +128,8 @@
 ; [includeIf "gitdir:~/travail/"]
   ; path = ~/.travail.gitconfig
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

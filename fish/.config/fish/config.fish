@@ -3,6 +3,7 @@ set -gx LC_ALL "en_GB.UTF-8"
 set -gx EDITOR vim
 
 set -gx VOLTA_HOME ~/.local/share/volta
+set -gx DOCKER_SCAN_SUGGEST false
 
 set RECENTTRACKS ~/Downloads/recenttracks-mo_ceol-1644053470.csv
 
@@ -77,6 +78,9 @@ abbr ytdl "youtube-dl --restrict-filenames -o '%(title)s.%(ext)s'"
 
 
 abbr -a reload 'source ~/.config/fish/config.fish'
+
+abbr -a dcu 'docker-compose up --build'
+abbr -a dcd 'docker-compose down --remove-orphans -v'
 
 function tree
   command exa --tree --all $argv
