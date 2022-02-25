@@ -57,8 +57,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   "let test#strategy = 'neoterm'
 
   " IDE feelings (Language Server Clients)
-  "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  "Plug 'antoinemadec/coc-fzf'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'antoinemadec/coc-fzf'
   " Plug 'dense-analysis/ale' " Linters
 
   " Languages
@@ -108,6 +108,46 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'vim-scripts/ctags.vim'
   " Plug 'terryma/vim-multiple-cursors'
 call plug#end()
+
+let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-tsserver'
+  \ ]
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+" Goto code navigation
+nmap <silent> gd <plug>(coc-definition)
+nmap <silent> gt <plug>(coc-type-definition)
+nmap <silent> gi <plug>(coc-implementation)
+nmap <silent> gr <plug>(coc-references)
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
+nmap <leader>qf <plug>(coc-fix-current)
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position. ?
+inoremap <expr> <tab> complete_info()["selected"] != "-1" ? "\<c-y>" : "\<c-g>u\<tab>"
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <plug>(coc-diagnostic-prev)
+nmap <silent> ]g <plug>(coc-diagnostic-next)
+
+nnoremap <leader>cc :cclose<cr>:pclose<cr>:call coc#util#float_hide()<cr>
+nnoremap <leader>cr :silent CocRestart<cr>
 
 " restore
 set shell=fish " TODO: make sure that it does not break anything
