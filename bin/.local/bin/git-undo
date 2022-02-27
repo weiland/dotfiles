@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# Undo your last commit, but don't throw away your changes
+# Source: https://github.com/unixorn/git-extra-commands/blob/main/bin/git-undo
+
+exec git reset --soft HEAD^
