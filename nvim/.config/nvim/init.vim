@@ -293,11 +293,15 @@ set novisualbell
 set modelines=0
 set nomodeline
 
+" Disable automatic comment insertion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " Return to last edit position when opening files (instead of relativenumbers)
 autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \ if line("'\"") > 0 && &filetype != "gitcommit" && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+" autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 
 " Use vims navigator in
 let g:netrw_banner = 0
