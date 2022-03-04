@@ -31,10 +31,13 @@
     sessionVariables = {
       EDITOR = "nvim";
     };
-    stateVersion = "21.11";
+
+    stateVersion = "22.05";
   };
 
   programs = {
+    home-manager.enable = true;
+
     bat = {
       enable = true;
       config = {
@@ -221,7 +224,6 @@
       ];
     };
 
-    home-manager.enable = true;
 
     starship = {
       enable = true;
