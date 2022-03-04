@@ -2,12 +2,23 @@ set -gx LANG "en_GB"
 set -gx LC_ALL "en_GB.UTF-8"
 set -gx EDITOR vim
 
+set -gx RUSTUP_HOME ~/.config/rustup
+set -gx CARGO_HOME ~/.cache/cargo
+
+set -gx GOPATH ~/src/go
+
 set -gx VOLTA_HOME ~/.local/share/volta
+
 set -gx DOCKER_SCAN_SUGGEST false
+
+set -gx PASSWORD_STORE_DIR ~/.local/share/password-store
+
 
 set RECENTTRACKS ~/Downloads/recenttracks-mo_ceol-1644053470.csv
 
+
 fish_add_path ~/.local/bin
+fish_add_path $CARGO_HOME/bin
 fish_add_path -ga $VOLTA_HOME/bin
 fish_add_path -a /opt/homebrew/sbin
 
@@ -217,4 +228,3 @@ end
 
 # sh /Users/pw/.nix-profile/etc/profile.d/nix.sh
 #fish_vi_key_bindings
-
