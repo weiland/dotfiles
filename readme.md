@@ -1,16 +1,31 @@
 # @weiland's dotfiles
 
-## Installtion
+## Prerequisites
 
-```sh
-# prepare directory
-mkdir -p ~/code
+1. Install nix
 
-# clone
-git clone https://github.com/weiland/dotfiles ~/code/dotfiles
-cd ~/code/dotfiles
+2. Install home-manager
 
-# link dotfiles (using GNU stow)
-stow -v -t $HOME fish starship git nvim ssh tmux curl
+```command
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+
+nix-shell '<home-manager>' -A install
+
+home-manager --version
 ```
 
+## Usage
+
+Now, clone dotfiles:
+
+    git clone https://github.com/weiland/dotfiles.git ~/.config/nixpkgs
+
+Activate home-manager:
+
+    home-manager switch
+
+
+### Updates
+
+todo
