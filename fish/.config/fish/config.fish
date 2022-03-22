@@ -13,8 +13,10 @@ set -gx DOCKER_SCAN_SUGGEST false
 
 set -gx PASSWORD_STORE_DIR ~/.local/share/password-store
 
+# set -gx DOCKER_CONFIG = ~/.config/docker
 
-set RECENTTRACKS ~/Downloads/recenttracks-mo_ceol-1644053470.csv
+
+set RECENTTRACKS ~/Downloads/recenttracks-mo_ceol-1647358753.csv
 
 
 fish_add_path ~/.local/bin
@@ -137,7 +139,7 @@ function woi_usage
 end
 
 function woi_login
-  curl -v 'http://10.101.64.10/en/' -H 'Cookie: csrf=asdf' --data 'login=true&CSRFToken=asdf'
+  curl -vk 'https://10.101.64.10/en/' -H 'Host: wifi.bahn.de' -H 'Cookie: csrf=asdf' --data 'login=true&CSRFToken=asdf'
 end
 
 function woi_login_with_domain

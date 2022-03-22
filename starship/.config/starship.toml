@@ -37,7 +37,7 @@ $battery\
 $status\
 $character"""
 
-right_format = "$time"
+right_format = """$time"""
 
 [battery]
 full_symbol = "🔋"
@@ -71,5 +71,6 @@ disabled = true
 
 [time]
 disabled = false
-format = '[\[ $time \]]($style) '
+format = "[$time]($style) "
 time_format = "%T"
+

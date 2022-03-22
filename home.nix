@@ -28,6 +28,7 @@
       nodePackages.prettier
       nodePackages.elasticdump
     ];
+
     sessionVariables = {
       EDITOR = "nvim";
     };
@@ -48,7 +49,6 @@
 
     direnv = {
       enable = true;
-      enableFishIntegration = true;
       nix-direnv = {
         enable = true;
       };
@@ -98,11 +98,10 @@
         mv = "mv -i";
         mkdir = "mkdir -p";
         du = "du -hs";
-        ll = "exa -l sort newest";
-        la = "exa -la";
+        # ll = "exa -l sort newest";
+        # la = "exa -la"; # conflicts already with exa program
       };
-      # Abbreviate commonly used functions
-      # An abbreviation will expand after <space> or <Enter> is hit
+
       shellAbbrs = {
         ga = "git add";
         gap = "git add -p";
@@ -148,13 +147,13 @@
           '';
         };
         tree = {
-          description = "Tree of directory (aliasing exa)"
+          description = "Tree of directory (aliasing exa)";
           body = ''
             command exa --tree --all $argv
           '';
         };
         mkd = {
-          description = "MKdir and cd into it."
+          description = "MKdir and cd into it.";
           body = ''
             mkdir -p $argv; and cd $argv
           '';
