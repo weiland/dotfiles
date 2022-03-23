@@ -1,10 +1,14 @@
 { config, pkgs, ... }:
 
+let 
+  pkgsDarwin = import <nixpkgs-darwin> {}; 
+in
+
 {
 
   home = {
-    username = "pw";
-    homeDirectory = "/home/pw"; # TODO(pascal): Include macos
+    #username = "pw";
+    # homeDirectory = "/home/pw"; # TODO(pascal): Include macos
     packages = with pkgs; [
       any-nix-shell
       # entr
@@ -22,18 +26,19 @@
       tree-sitter
 
       yarn
-      nodePackages.gulp
+      #nodePackages.gulp
       nodePackages.eslint
       nodePackages.eslint_d
       nodePackages.prettier
-      nodePackages.elasticdump
+      #nodePackages.elasticdump
     ];
 
     sessionVariables = {
       EDITOR = "nvim";
     };
 
-    stateVersion = "22.05";
+    # will be defined in flake (for standalone)
+    stateVersion = "21.11";
   };
 
   programs = {
@@ -89,6 +94,9 @@
         set fish_color_autosuggestion brblack
       '';
       interactiveShellInit = ''
+if command -v starship > /dev/null
+  starship init fish | source
+end
       '';
       shellAliases = {
         nvim = "nvim -p";
@@ -225,7 +233,7 @@
 
 
     starship = {
-      enable = true;
+      enable = false;
       enableFishIntegration = true;
       settings = {
         add_newline = true;
@@ -244,12 +252,19 @@
     };
   };
 
-  xdg.configFile."nix/nix.conf".text = ''
-    experimental-features = nix-command flakes
-  '';
+  nixpkgs.overlays = [
+    (self: super: {
+      starship = pkgsDarwin.starship;
+    })
+  ];
 
-  xdg.configFile.nvim = {
-    source = ./config/neovim;
-    recursive = true;
-  };
+  # already set by nix-darwin
+  #xdg.configFile."nix/nix.conf".text = ''
+  #  experimental-features = nix-command flakes
+  #'';
+
+  #xdg.configFile.nvim = {
+  #  source = ./config/neovim;
+  #  recursive = true;
+  #};
 }
