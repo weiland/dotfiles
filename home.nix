@@ -7,22 +7,32 @@ in
 {
 
   home = {
-    #username = "pw";
-    # homeDirectory = "/home/pw"; # TODO(pascal): Include macos
+    username = "pw";
+    homeDirectory = "/Users/pw"; # TODO(pascal): Include macos
+
+    # disable last login message
+    file.".hushlogin".text = "";
+
     packages = with pkgs; [
+      alacritty
       any-nix-shell
       # entr
       # imagemagick
       curl
+      docker
+      docker-compose
       fzf
       fd
+      git-open
       htop
       jq
       neovim # due to lua config trouble up here
       nodejs
+      #openconnect
       pandoc
       ripgrep
-      # tree # exa will do it
+      stow
+      terminal-notifier
       tree-sitter
 
       yarn
@@ -33,8 +43,11 @@ in
       #nodePackages.elasticdump
     ];
 
+    sessionPath = [ "/opt/homebrew/bin/" ];
+
     sessionVariables = {
       EDITOR = "nvim";
+      MANPAGER = "nvim +Man!";
     };
 
     # will be defined in flake (for standalone)
@@ -47,7 +60,7 @@ in
     bat = {
       enable = true;
       config = {
-        theme = "GitHub";
+        theme = "Nord";
         italic-text = "always";
       };
     };
@@ -61,7 +74,6 @@ in
 
     exa = {
       enable = true;
-      enableAliases = true;
     };
 
     fish = {
@@ -74,6 +86,15 @@ in
             repo = "nix-env.fish";
             rev = "00c6cc762427efe08ac0bd0d1b1d12048d3ca727";
             sha256 = "1hrl22dd0aaszdanhvddvqz3aq40jp9zi2zn0v1hjnf7fx4bgpma";
+          };
+        }
+        {
+          name = "done";
+          src = pkgs.fetchFromGitHub {
+            owner = "franciscolourenco";
+            repo = "done";
+            rev = "d6abb267bb3fb7e987a9352bc43dcdb67bac9f06";
+            sha256 = "1h8v5jg9kkali50qq0jn0i1w68wp4c2l0fapnglnnpg0v4vv51za";
           };
         }
       ];
@@ -94,20 +115,19 @@ in
         set fish_color_autosuggestion brblack
       '';
       interactiveShellInit = ''
-if command -v starship > /dev/null
-  starship init fish | source
-end
       '';
       shellAliases = {
         nvim = "nvim -p";
         vim = "nvim -p";
         rm = "rm -i";
         cp = "cp -i";
+        hm = "home-manager";
         mv = "mv -i";
         mkdir = "mkdir -p";
         du = "du -hs";
-        # ll = "exa -l sort newest";
-        # la = "exa -la"; # conflicts already with exa program
+        ll = "exa -l --sort newest";
+        la = "exa -la";
+        ql = "qlmanage -p 2>/dev/null";
       };
 
       shellAbbrs = {
@@ -143,6 +163,10 @@ end
             end
           '';
         };
+	reload = {
+          description = "reload fish config";
+          body = "source ~/.config/fish/config.fish";
+	};
         fish_greeting = {
           description = "Greeting to show when starting a fish shell";
           body = "";
@@ -194,7 +218,7 @@ end
         options = {
           navigate = true;
           line-numbers = true;
-          syntax-theme = "GitHub";
+          syntax-theme = "Nord";
         };
       };
       extraConfig = {
@@ -203,6 +227,7 @@ end
           # https://github.com/NixOS/nixpkgs/issues/15686#issuecomment-865928923
           # sshCommand = "/usr/bin/ssh"; # macOS thing
         };
+	credential.helper = "osxkeychain";
         color = {
           ui = true;
         };
@@ -219,8 +244,8 @@ end
           defaultBranch = "main";
         };
         url."git@github.com:" = {
-          insteadOf = "gh:";
-          pushInsteadOf = "gh:";
+          insteadOf = "https://github.com/";
+          pushInsteadOf = "https://github.com/";
         };
       };
       ignores = [
@@ -229,21 +254,81 @@ end
         ".DS_Store"
         ".envrc"
       ];
+      includes = [
+        {
+          condition = "gitdir:~/src/weiland";
+          contents = {
+            user = {
+              email = "weiland@users.noreply.github.com";
+              signingkey = "8F592971";
+            };
+          };
+        }
+        {
+          condition = "gitdir:~/src/rp-online";
+          contents = {
+            user = {
+              email = "pascal.weiland@rp-digital.de";
+              signingkey = "34562F25";
+            };
+          };
+        }
+      ];
     };
 
+    gpg = {
+      enable = true;
+      homedir = "${config.xdg.dataHome}/gnupg";
+    };
+
+    neovim = {
+      enable = false;
+      vimAlias = true;
+    };
 
     starship = {
-      enable = false;
+      enable = true;
       enableFishIntegration = true;
       settings = {
+        command_timeout = 100;
         add_newline = true;
         right_format = "$time";
         time = {
           disabled = false;
-          format = "[\[ $time \]]($style) ";
+          format = "[ $time ]($style) ";
           time_format = "%T";
         };
       };
+    };
+
+    ssh = {
+      enable = true;
+
+      includes = [ "~/Documents/Configs/ssh/.ssh/private_ssh_config" ];
+
+      matchBlocks = {
+        "*" = {
+          identityFile = "~/Documents/Configs/ssh/.ssh/id_pw_hopper";
+          extraOptions = {
+            ChallengeResponseAuthentication = "no";
+            HashKnownHosts = "yes";
+            AddKeysToAgent = "yes";
+            IgnoreUnknown = "UseKeychain";
+            UseKeychain = "yes";
+          };
+        };
+        "y" = {
+          "hostname" = "spahr.uberspace.de";
+          "user" = "y";
+        };
+      };
+    };
+
+    tmux = {
+      enable = true;
+
+      clock24 = true;
+
     };
 
     zoxide = {
@@ -255,16 +340,20 @@ end
   nixpkgs.overlays = [
     (self: super: {
       starship = pkgsDarwin.starship;
+      #openconnect = pkgsDarwin.openconnect_openssl;
+      #openconnect = pkgsUnstable.openconnect;
     })
   ];
 
-  # already set by nix-darwin
-  #xdg.configFile."nix/nix.conf".text = ''
-  #  experimental-features = nix-command flakes
-  #'';
+  xdg.enable = true;
 
-  #xdg.configFile.nvim = {
-  #  source = ./config/neovim;
-  #  recursive = true;
-  #};
+  # extra config
+  xdg.configFile."nix/nix.conf".text = ''
+    experimental-features = nix-command flakes
+  '';
+
+  xdg.configFile.nvim = {
+    source = ./config/neovim;
+    recursive = true;
+  };
 }
