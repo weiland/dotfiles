@@ -54,6 +54,7 @@ in
       #openconnect
       pandoc
       pdfgrep
+      # pinentry-mac # package version is old
       ripgrep
       shellcheck
       stow
