@@ -354,10 +354,7 @@ in
         };
       };
       ignores = [
-        ".*.swp"
-        ".bundle"
         ".DS_Store"
-        ".envrc"
       ];
       includes = [
         {
