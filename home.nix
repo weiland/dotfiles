@@ -14,6 +14,16 @@ in
     # disable last login message
     file.".hushlogin".text = "";
 
+    file.".curlrc".text = ''
+      referer = ";auto"
+      connect-timeout = 60
+      max-time = 90
+      remote-time
+      show-error
+      progress-bar
+      #user-agent = "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+    '';
+
     file.".gemrc".text = "gem: --no-document";
 
     file.".local/bin" = {
