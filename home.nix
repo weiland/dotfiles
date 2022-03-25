@@ -25,6 +25,8 @@ in
     '';
 
     file.".gemrc".text = "gem: --no-document";
+    
+    file."Library/Application Support/iTerm2/DynamicProfiles/Profiles.json".source = ./config/iterm/Profiles.json;
 
     file.".local/bin" = {
       source = ./config/bin;
@@ -74,12 +76,17 @@ in
     sessionPath = [
       "/opt/homebrew/bin/"
       "$HOME/.local/bin"
+      # "~/.cache/cargo"
     ];
 
     sessionVariables = {
       EDITOR = "nvim";
-      MANPAGER = "nvim +Man!";
       GOPATH = "~/src/go";
+
+      CARGO_HOME = "~/.cache/cargo";
+      RUSTUP_HOME = "~/.config/rustup";
+
+      MANPAGER = "nvim +Man!";
 
       XDG_CACHE_HOME  = "$HOME/.cache";
       XDG_CONFIG_HOME = "$HOME/.config";
@@ -276,6 +283,12 @@ in
           description = "MKdir and cd into it.";
           body = ''
             mkdir -p $argv; and cd $argv
+          '';
+        };
+        woi_login = {
+          description = "Wifi@DB / WifiOnICE login script";
+          body = ''
+          curl -vk 'https://10.101.64.10/en/' -H 'Host: wifi.bahn.de' -H 'Cookie: csrf=asdf' --data 'login=true&CSRFToken=asdf'
           '';
         };
         zws = {
