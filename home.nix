@@ -2,7 +2,7 @@
 
 let 
   pkgsDarwin = import <nixpkgs-darwin> {}; 
-  pkgsUnstable = import <nixpkgs-unstable> {}; 
+  # pkgsUnstable = import <nixpkgs-unstable> {}; 
 in
 
 {
@@ -14,10 +14,18 @@ in
     # disable last login message
     file.".hushlogin".text = "";
 
+    file.".gemrc".text = "gem: --no-document";
+
+    file.".local/bin" = {
+      source = ./config/bin;
+      recursive = true;
+    };
+
     packages = with pkgs; [
       alacritty
       any-nix-shell
       curl
+      deno
       #docker
       #docker-compose
       entr
@@ -26,7 +34,7 @@ in
       fd
       git-open
       htop
-      # httpie
+      httpie
       # imagemagick
       jq
       neovim # due to lua config trouble up here
@@ -55,11 +63,18 @@ in
 
     sessionPath = [
       "/opt/homebrew/bin/"
+      "$HOME/.local/bin"
     ];
 
     sessionVariables = {
       EDITOR = "nvim";
       MANPAGER = "nvim +Man!";
+      GOPATH = "~/src/go";
+
+      XDG_CACHE_HOME  = "$HOME/.cache";
+      XDG_CONFIG_HOME = "$HOME/.config";
+      XDG_DATA_HOME   = "$HOME/.local/share";
+      XDG_BIN_HOME    = "$HOME/.local/bin";
     };
 
     # will be defined in flake (for standalone)
