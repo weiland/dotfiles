@@ -168,7 +168,6 @@ in
         dl = "cd ~/Downloads";
         du = "du -hs";
         fd = "fd --hidden --follow";
-        hm = "home-manager";
         rm = "rm -i";
         ping = "ping -c 5";
         la = "exa -la";
@@ -410,7 +409,17 @@ in
       enable = true;
       enableFishIntegration = true;
       settings = {
+        battery = {
+          full_symbol = "🔋";
+          charging_symbol = "⚡️";
+          discharging_symbol = "💀";
+        };
         command_timeout = 100;
+        directory = {
+          truncation_length = 5;
+          truncation_symbol = "…/";
+        };
+        git_status.conflicted = "🤯";
         add_newline = true;
         right_format = "$time";
         time = {
@@ -419,6 +428,23 @@ in
           time_format = "%T";
         };
       };
+    };
+
+    spotifyd = {
+      enable = false;
+      username = "passj"
+      password_cmd = "security find-generic-password -s spotifyd -w"
+      #use_keyring = true; # use macos keychain instead of command above
+      use_mpris = false; # false for headless
+      backend = "portaudio";
+      volume_controller = "softvol";
+      device_name = "fruitbooked";
+      device_type = "computer";
+      # The audio bitrate. 96, 160 or 320 kbit/s
+      bitrate = 160;
+      no_audio_cache = true;
+      volume_normalisation = true;
+      zeroconf_port = 1234;
     };
 
     ssh = {
