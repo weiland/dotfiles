@@ -638,6 +638,8 @@ in
     experimental-features = nix-command flakes
   '';
 
+  xdg.configFile."alacritty.yml".source = ./config/alacritty/alacritty.yml;
+
   xdg.configFile.nvim = {
     source = ./config/neovim;
     recursive = true;
