@@ -2,6 +2,7 @@
 
 let 
   pkgsDarwin = import <nixpkgs-darwin> {}; 
+  pkgsUnstable = import <nixpkgs-unstable> {}; 
 in
 
 {
@@ -16,24 +17,33 @@ in
     packages = with pkgs; [
       alacritty
       any-nix-shell
-      # entr
-      # imagemagick
       curl
-      docker
-      docker-compose
+      #docker
+      #docker-compose
+      entr
+      # ffmpeg
       fzf
       fd
       git-open
       htop
+      # httpie
+      # imagemagick
       jq
       neovim # due to lua config trouble up here
       nodejs
       #openconnect
       pandoc
+      pdfgrep
       ripgrep
+      shellcheck
       stow
+      tealdeer
       terminal-notifier
+      tig
       tree-sitter
+      wifi-password
+      xsv
+      yt-dlp
 
       yarn
       #nodePackages.gulp
@@ -43,7 +53,9 @@ in
       #nodePackages.elasticdump
     ];
 
-    sessionPath = [ "/opt/homebrew/bin/" ];
+    sessionPath = [
+      "/opt/homebrew/bin/"
+    ];
 
     sessionVariables = {
       EDITOR = "nvim";
@@ -117,20 +129,30 @@ in
       interactiveShellInit = ''
       '';
       shellAliases = {
-        nvim = "nvim -p";
-        vim = "nvim -p";
-        rm = "rm -i";
+        afk = "open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine";
         cp = "cp -i";
-        hm = "home-manager";
-        mv = "mv -i";
-        mkdir = "mkdir -p";
+        dl = "cd ~/Downloads";
         du = "du -hs";
-        ll = "exa -l --sort newest";
+        fd = "fd --hidden --follow";
+        hm = "home-manager";
+        rm = "rm -i";
+        ping = "ping -c 5";
         la = "exa -la";
+        ls = "exa";
+        ll = "exa -l --sort newest";
+        lock = "pmset sleepnow";
+        nvim = "nvim -p";
+        #mv = "mv -i";
+        mkdir = "mkdir -p";
+        vim = "nvim -p";
+        wifiname = "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep -e '\\bSSID:' | sed -e 's/^.*SSID: //'";
         ql = "qlmanage -p 2>/dev/null";
       };
 
       shellAbbrs = {
+        "..." = "../..";
+        "...." = "../../..";
+        "....." = "../../../..";
         ga = "git add";
         gap = "git add -p";
         gb = "git branch";
@@ -150,8 +172,23 @@ in
         gsc = "git switch -c";
         hme = "home-manager edit";
         hms = "home-manager switch";
+        youtube-dl = "yt-dlp";
+        ytdl = "yt-dlp --restrict-filenames -o '%(title)s.%(ext)s'";
       };
       functions = {
+        cdf = {
+          description = "Change to directory opened by Finder";
+          body = ''
+            if [ -x /usr/bin/osascript ]
+              set -l target (osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)')
+              if [ "$target" != "" ]
+                cd "$target"; pwd
+              else
+                echo 'No Finder window found' >&2
+              end
+            end
+          '';
+        };
         ctrlp = {
           description = "Launch Neovim file finder from the shell";
           argumentNames = "hidden";
@@ -166,7 +203,7 @@ in
 	reload = {
           description = "reload fish config";
           body = "source ~/.config/fish/config.fish";
-	};
+        };
         fish_greeting = {
           description = "Greeting to show when starting a fish shell";
           body = "";
@@ -178,10 +215,36 @@ in
             bind \cl 'ctrlp --hidden'
           '';
         };
+        k = {
+          description = "Go to knowledge";
+          body = ''
+            cd ~/src/weiland/knowledge
+            vim +CtrlP
+          '';
+        };
         tree = {
           description = "Tree of directory (aliasing exa)";
           body = ''
             command exa --tree --all $argv
+          '';
+        };
+        lastfm = {
+          description = "MKdir and cd into it.";
+          body = ''
+            set -q RECENTTRACKS || set RECENTTRACKS "/Users/$USER/.local/share/recenttracks.csv"
+
+            if not test -f "$RECENTTRACKS"
+              echo "Tracks $RECENTTRACKS file does not exist yet."
+              echo 'Perhaps download new file? https://lastfm.ghan.nl/export/'
+              return 1
+            end
+
+            if not type -q xsv
+              echo '"xsv" is not installed'
+              return 1
+            end
+
+            xsv search -i "$argv" "$RECENTTRACKS" | xsv select utc_time,artist,track,album | xsv table
           '';
         };
         mkd = {
@@ -189,6 +252,10 @@ in
           body = ''
             mkdir -p $argv; and cd $argv
           '';
+        };
+        zws = {
+          description = "Puts a zero width joiner into the clipboard";
+          body = "echo -n '\u200D' | pbcopy";
         };
       };
     };
