@@ -83,6 +83,8 @@ in
       EDITOR = "nvim";
       GOPATH = "~/src/go";
 
+      DOCKER_SCAN_SUGGEST = false;
+
       CARGO_HOME = "~/.cache/cargo";
       RUSTUP_HOME = "~/.config/rustup";
 
@@ -314,6 +316,7 @@ in
       userName = "Pascal Weiland";
       userEmail = "commits@mailbox.org";
       aliases = {
+        identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :";
         prettylog = "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
         branches = "branch -a";
         remotes = "remote -v";
@@ -332,9 +335,14 @@ in
           # https://github.com/NixOS/nixpkgs/issues/15686#issuecomment-865928923
           # sshCommand = "/usr/bin/ssh"; # macOS thing
         };
-	credential.helper = "osxkeychain";
+        credential.helper = "osxkeychain";
         color = {
           ui = true;
+        };
+        difftool.prompt = false;
+        merge = {
+          log = true;
+          conflictStyle = "zdiff3";
         };
         push = {
           default = "simple";
@@ -342,11 +350,21 @@ in
         pull = {
           ff = "only";
         };
+        remote.origin = {
+          prune = true;
+        };
+        rerere = {
+          enabled = 1;
+        };
         status = {
           showUntrackedFiles = "normal";
         };
         init = {
           defaultBranch = "main";
+        };
+        user.gmail = {
+          email = "pasweiland@gmail.com";
+          signingkey = "182E88B5";
         };
         url."git@github.com:" = {
           insteadOf = "https://github.com/";
