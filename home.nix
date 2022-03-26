@@ -92,6 +92,9 @@ in
       CARGO_HOME = "~/.cache/cargo";
       RUSTUP_HOME = "~/.config/rustup";
 
+      GNUPGHOME = "${config.xdg.dataHome}/gnupg";
+      GPG_TTY = "$(tty)";
+
       MANPAGER = "nvim +Man!";
 
       XDG_CACHE_HOME  = "$HOME/.cache";
