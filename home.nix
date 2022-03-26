@@ -25,6 +25,9 @@ in
     '';
 
     file.".gemrc".text = "gem: --no-document";
+
+    # file.".gnupg/gpg.conf".text = "use-agent";
+    # file.".gnupg/gpg-agent.conf".text = "pinentry-program /opt/homebrew/bin/pinentry-mac";
     
     file."Library/Application Support/iTerm2/DynamicProfiles/Profiles.json".source = ./config/iterm/Profiles.json;
 
