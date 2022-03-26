@@ -320,7 +320,8 @@ in
     git = {
       enable = true;
       userName = "Pascal Weiland";
-      userEmail = "commits@mailbox.org";
+      # userEmail = "commits@mailbox.org";
+      userEmail = "weiland@users.noreply.github.com";
       aliases = {
         identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :";
         prettylog = "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
