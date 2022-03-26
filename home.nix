@@ -401,6 +401,11 @@ in
           };
         }
       ];
+      signing = {
+        key = "8F592971"; # GitHub Key
+        gpgPath = "/opt/homebrew/bin/gpg2";
+        signByDefault = true;
+      };
     };
 
     gpg = {
