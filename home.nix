@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
-let 
-  pkgsDarwin = import <nixpkgs-darwin> {}; 
-  # pkgsUnstable = import <nixpkgs-unstable> {}; 
+let
+  pkgsDarwin = import <nixpkgs-darwin> {};
+  # pkgsUnstable = import <nixpkgs-unstable> {};
 in
 
 {
@@ -21,14 +21,14 @@ in
       remote-time
       show-error
       progress-bar
-      #user-agent = "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+      user-agent = "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
     '';
 
     file.".gemrc".text = "gem: --no-document";
 
     # file.".gnupg/gpg.conf".text = "use-agent";
     # file.".gnupg/gpg-agent.conf".text = "pinentry-program /opt/homebrew/bin/pinentry-mac";
-    
+
     file."Library/Application Support/iTerm2/DynamicProfiles/Profiles.json".source = ./config/iterm/Profiles.json;
 
     file.".local/bin" = {
@@ -44,20 +44,21 @@ in
       #docker
       #docker-compose
       entr
-      # ffmpeg
+      ffmpeg
       fzf
       fd
       git-open
       htop
       httpie
-      # imagemagick
+      imagemagick
       jq
       neovim # due to lua config trouble up here
+      nmap
       nodejs
-      #openconnect
+      #openconnect # fails
       pandoc
       pdfgrep
-      # pinentry-mac # package version is old
+      # pinentry-mac # package version is too old
       ripgrep
       shellcheck
       stow
@@ -71,9 +72,9 @@ in
 
       yarn
       #nodePackages.gulp
-      nodePackages.eslint
       nodePackages.eslint_d
       nodePackages.prettier
+      nodePackages.serve
       #nodePackages.elasticdump
     ];
 
@@ -119,9 +120,9 @@ in
     };
 
     direnv = {
-      enable = true;
+      enable = false;
       nix-direnv = {
-        enable = true;
+        enable = false;
       };
     };
 
@@ -182,6 +183,7 @@ in
         ll = "exa -l --sort newest";
         lock = "pmset sleepnow";
         nvim = "nvim -p";
+        nova = "open -a Nova";
         #mv = "mv -i";
         mkdir = "mkdir -p";
         vim = "nvim -p";
@@ -293,6 +295,12 @@ in
             mkdir -p $argv; and cd $argv
           '';
         };
+        data_left = {
+          description = "Display data volume left for Telekom Mobile. (Requires `htmlq` and a Telekom Mobile connection)";
+          body = ''
+            curl -sL https://pass.telekom.de | htmlq --text '.volume.fit-text-to-container'
+          '';
+        };
         woi_login = {
           description = "Wifi@DB / WifiOnICE login script";
           body = ''
@@ -349,7 +357,7 @@ in
         difftool.prompt = false;
         merge = {
           log = true;
-          conflictStyle = "zdiff3";
+          conflictStyle = "diff3";
         };
         push = {
           default = "simple";
@@ -387,7 +395,7 @@ in
           contents = {
             user = {
               email = "weiland@users.noreply.github.com";
-              signingkey = "8F592971";
+              signingkey = "DCBE474CB9955FDD372FD3F1B924142E8F592971";
             };
           };
         }
@@ -402,15 +410,17 @@ in
         }
       ];
       signing = {
-        key = "8F592971"; # GitHub Key
-        gpgPath = "/opt/homebrew/bin/gpg2";
-        signByDefault = true;
+        key = "8F592971"; # GitHub Key (stopped working?!)
+        gpgPath = "/opt/homebrew/bin/gpg";
+        signByDefault = false;
       };
     };
 
     gpg = {
-      enable = true;
-      homedir = "${config.xdg.dataHome}/gnupg";
+      enable = false; # TODO: add keys
+      # homedir = "${config.xdg.dataHome}/gnupg";
+      # mutableKeys = true;
+      # mutableTrust = true;
     };
 
     neovim = {
@@ -444,7 +454,7 @@ in
     };
 
     ssh = {
-      enable = true;
+      enable = false;
 
       includes = [ "~/Documents/Configs/ssh/.ssh/private_ssh_config" ];
 
@@ -651,10 +661,15 @@ in
     experimental-features = nix-command flakes
   '';
 
+  xdg.dataFile.gnupg = {
+    source = ~/Documents/Configs/gpg;
+    recursive = true;
+  };
+
   xdg.configFile."alacritty.yml".source = ./config/alacritty/alacritty.yml;
 
   xdg.configFile.nvim = {
-    source = ./config/neovim;
+    source = ./nvim/.config/nvim;
     recursive = true;
   };
 }
