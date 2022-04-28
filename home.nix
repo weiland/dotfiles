@@ -62,6 +62,7 @@ in
       pdfgrep
       # pinentry-mac # package version is too old
       ripgrep
+      rustup
       shellcheck
       stow
       tealdeer
@@ -77,23 +78,24 @@ in
       nodePackages.eslint_d
       nodePackages.prettier
       nodePackages.serve
+      nodePackages.pnpm
       #nodePackages.elasticdump
     ];
 
     sessionPath = [
       "/opt/homebrew/bin/"
-      "$HOME/.local/bin"
-      # "~/.cache/cargo"
+      "~/.local/bin"
+      "~/.cache/cargo/bin"
     ];
 
     sessionVariables = {
       EDITOR = "nvim";
       GOPATH = "~/src/go";
 
-      DOCKER_SCAN_SUGGEST = false;
+      DOCKER_SCAN_SUGGEST = "false";
 
-      CARGO_HOME = "~/.cache/cargo";
-      RUSTUP_HOME = "~/.config/rustup";
+      CARGO_HOME = "$HOME/.cache/cargo";
+      RUSTUP_HOME = "$HOME/.config/rustup";
 
       GNUPGHOME = "${config.xdg.dataHome}/gnupg";
       GPG_TTY = "$(tty)";
@@ -174,7 +176,7 @@ in
       '';
       shellAliases = {
         afk = "open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine";
-        cp = "cp -i";
+        # cp = "cp -i";
         dl = "cd ~/Downloads";
         du = "du -hs";
         fd = "fd --hidden --follow";
@@ -357,12 +359,15 @@ in
           ui = true;
         };
         difftool.prompt = false;
+        help = {
+          autocorrect = prompt
+        }
         merge = {
           log = true;
           conflictStyle = "diff3";
         };
         push = {
-          default = "simple";
+          default = "matching";
         };
         pull = {
           ff = "only";
