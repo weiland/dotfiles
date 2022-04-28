@@ -40,6 +40,7 @@ in
       alacritty
       any-nix-shell
       curl
+      curlie
       deno
       #docker
       #docker-compose
