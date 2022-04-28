@@ -202,8 +202,8 @@ in
         ga = "git add";
         gap = "git add -p";
         gb = "git branch";
-        gc = "git commit";
-        gcm = "git commit -m";
+        gc = "git commit -v";
+        gcm = "git switch main";
         gco = "git checkout";
         gd = "git diff";
         gds = "git diff --staged";
@@ -302,7 +302,7 @@ in
         data_left = {
           description = "Display data volume left for Telekom Mobile. (Requires `htmlq` and a Telekom Mobile connection)";
           body = ''
-            curl -sL https://pass.telekom.de | htmlq --text '.volume.fit-text-to-container'
+            curl -sL https://pass.telekom.de | htmlq --text '.volume.fit-text-to-container, .remaining-duration'
           '';
         };
         woi_login = {
