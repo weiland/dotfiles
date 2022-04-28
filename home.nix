@@ -26,6 +26,7 @@ in
 
     file.".gemrc".text = "gem: --no-document";
 
+    # look at the bottom at xdg
     # file.".gnupg/gpg.conf".text = "use-agent";
     # file.".gnupg/gpg-agent.conf".text = "pinentry-program /opt/homebrew/bin/pinentry-mac";
 
@@ -413,7 +414,7 @@ in
       signing = {
         key = "8F592971"; # GitHub Key (stopped working?!)
         gpgPath = "/opt/homebrew/bin/gpg";
-        signByDefault = false;
+        signByDefault = true;
       };
     };
 
@@ -662,10 +663,8 @@ in
     experimental-features = nix-command flakes
   '';
 
-  xdg.dataFile.gnupg = {
-    source = ~/Documents/Configs/gpg;
-    recursive = true;
-  };
+  xdg.dataFile."gnupg/gpg.conf".text = "use-agent";
+  xdg.dataFile."gnupg/gpg-agent.conf".text = "pinentry-program /opt/homebrew/bin/pinentry-mac";
 
   xdg.configFile."alacritty.yml".source = ./config/alacritty/alacritty.yml;
 
