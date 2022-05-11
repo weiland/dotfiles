@@ -46,9 +46,10 @@ in
       #docker
       #docker-compose
       entr
-      ffmpeg
-      fzf
       fd
+      ffmpeg
+      fira-code
+      fzf
       git-open
       htop
       httpie
@@ -360,17 +361,18 @@ in
         };
         difftool.prompt = false;
         help = {
-          autocorrect = prompt
-        }
+          autocorrect = "prompt";
+        };
         merge = {
           log = true;
           conflictStyle = "diff3";
         };
         push = {
-          default = "matching";
+          default = "current";
         };
         pull = {
           ff = "only";
+          default = "current";
         };
         remote.origin = {
           prune = true;
@@ -632,6 +634,7 @@ in
   nixpkgs.overlays = [
     (self: super: {
       starship = pkgsDarwin.starship;
+      #pandoc = pkgsDarwin.pandoc;
       #openconnect = pkgsDarwin.openconnect_openssl;
       #openconnect = pkgsUnstable.openconnect;
     })
