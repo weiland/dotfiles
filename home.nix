@@ -370,7 +370,7 @@ in
         };
         merge = {
           log = true;
-          conflictStyle = "diff3";
+          # conflictStyle = "diff3";
         };
         push = {
           default = "current";
