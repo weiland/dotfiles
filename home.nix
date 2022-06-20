@@ -59,7 +59,6 @@ in
       nmap
       nodejs
       #openconnect # fails
-      pandoc
       pdfgrep
       # pinentry-mac # package version is too old
       ripgrep
@@ -304,6 +303,12 @@ in
           description = "Display data volume left for Telekom Mobile. (Requires `htmlq` and a Telekom Mobile connection)";
           body = ''
             curl -sL https://pass.telekom.de | htmlq --text '.volume.fit-text-to-container, .remaining-duration'
+          '';
+        };
+        sncf_login = {
+          description = "sncf wifi login script";
+          body = ''
+            curl 'https://wifi.sncf/router/api/connection/activate/auto' -H 'Pragma: no-cache' -H 'Origin: https://wifi.sncf' -H 'Accept-Encoding: gzip, deflate, br' -H 'Accept-Language: en,en-US;q=0.9,de;q=0.8,fr;q=0.7' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36' -H 'content-type: application/json' -H 'accept: application/json' -H 'Cache-Control: no-cache' -H 'Referer: https://wifi.sncf/en/internet/bot' -H 'Cookie: iob-context=f9vk6j; tracking-id=667b21ab-5f87-491b-ada7-9b2fa55ef7b4; io=ri3dEpOFq4J_m8VjAAAg; x-vsc-correlation-id=fbb43bed-4558-47f0-b610-8f4afda29cbe; gdpr-preferences={%22tracking%22:true%2C%22error%22:true%2C%22feedback%22:true}' -H 'Connection: keep-alive' -H 'DNT: 1' --data-binary '{}' --compressed
           '';
         };
         woi_login = {
