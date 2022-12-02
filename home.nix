@@ -124,10 +124,8 @@ in
     };
 
     direnv = {
-      enable = false;
-      nix-direnv = {
-        enable = false;
-      };
+      enable = true;
+      nix-direnv.enable = true;
     };
 
     exa = {
