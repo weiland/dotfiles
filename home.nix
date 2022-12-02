@@ -645,6 +645,8 @@ in
     })
   ];
 
+  manual.manpages.enable = false;
+
   services = {
     spotifyd = {
       enable = false;
