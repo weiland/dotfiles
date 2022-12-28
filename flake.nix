@@ -1,6 +1,4 @@
 {
-  description = "Description for the project";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
@@ -21,6 +19,7 @@
 
           modules = [
             ./home.nix
+            ./config/neovim/default.nix
           ];
         };
       };
