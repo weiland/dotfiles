@@ -56,6 +56,7 @@ in
       imagemagick
       jq
       neovim # due to lua config trouble up here
+      nix-output-monitor
       nmap
       nodejs
       #openconnect # fails
@@ -175,6 +176,7 @@ in
       shellAliases = {
         afk = "open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine";
         # cp = "cp -i";
+        cat = "bat";
         dl = "cd ~/Downloads";
         du = "du -hs";
         fd = "fd --hidden --follow";
@@ -216,6 +218,7 @@ in
         gsc = "git switch -c";
         hme = "home-manager edit";
         hms = "home-manager switch";
+        rgi = "rg -i";
         youtube-dl = "yt-dlp";
         ytdl = "yt-dlp --restrict-filenames -o '%(title)s.%(ext)s'";
       };
