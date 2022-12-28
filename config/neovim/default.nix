@@ -22,7 +22,7 @@
   ];
 
   home.shellAliases = {
-    vim = "nvim";
+    vim = "nvim -p";
   };
 
   xdg.configFile =
@@ -89,6 +89,7 @@
       lualine-nvim
       gitsigns-nvim
       editorconfig-nvim
+      lush-nvim
       jellybeans-nvim
       neogit
       nvim-tree-lua

@@ -5,6 +5,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ flake-parts, ... }:
@@ -15,11 +19,12 @@
         homeConfigurations.pw = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = import inputs.nixpkgs {
             system = "aarch64-darwin";
+            overlays = [ inputs.neovim-nightly-overlay.overlay ];
           };
 
           modules = [
             ./home.nix
-            ./config/neovim/default.nix
+            ./config/neovim
           ];
         };
       };

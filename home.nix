@@ -184,11 +184,9 @@ in
         ls = "exa";
         ll = "exa -l --sort newest";
         lock = "pmset sleepnow";
-        nvim = "nvim -p";
         nova = "open -a Nova";
         #mv = "mv -i";
         mkdir = "mkdir -p";
-        vim = "nvim -p";
         wifiname = "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep -e '\\bSSID:' | sed -e 's/^.*SSID: //'";
         ql = "qlmanage -p 2>/dev/null";
       };
@@ -216,7 +214,7 @@ in
         gcb = "git switch -c";
         gsc = "git switch -c";
         hme = "home-manager edit";
-        hms = "home-manager switch";
+        hms = "home-manager switch --flake ~/src/weiland/dotfiles#pw";
         rgi = "rg -i";
         youtube-dl = "yt-dlp";
         ytdl = "yt-dlp --restrict-filenames -o '%(title)s.%(ext)s'";
@@ -683,9 +681,4 @@ in
   xdg.dataFile."gnupg/gpg-agent.conf".text = "pinentry-program /opt/homebrew/bin/pinentry-mac";
 
   xdg.configFile."alacritty.yml".source = ./config/alacritty/alacritty.yml;
-
-  xdg.configFile.nvim = {
-    source = ./nvim/.config/nvim;
-    recursive = true;
-  };
 }
