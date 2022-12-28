@@ -117,7 +117,7 @@
   "Title Components" : 512,
   "Custom Command" : "No",
   "ASCII Anti Aliased" : true,
-  "Non Ascii Font" : "Monaco 12",
+  "Non Ascii Font" : "JetBrainsMonoNerdFontCompleteM-Regular 12",
   "Vertical Spacing" : 1,
   "Use Bold Font" : true,
   "Option Key Sends" : 0,
@@ -332,7 +332,7 @@
     "Blue Component" : 0.64188027381896973,
     "Green Component" : 0.64762973785400391
   },
-  "ASCII Ligatures" : false,
+  "ASCII Ligatures" : true,
   "Name" : "Default",
   "Cursor Text Color" : {
     "Red Component" : 0.072135128080844879,
@@ -370,7 +370,7 @@
     "Blue Component" : 0.64188027381896973,
     "Green Component" : 0.64762973785400391
   },
-  "Normal Font" : "Dank-Mono 11",
+  "Normal Font" : "JetBrainsMonoNerdFontCompleteM-Regular 11",
   "Ansi 2 Color" : {
     "Red Component" : 0.53603297472000122,
     "Color Space" : "Calibrated",

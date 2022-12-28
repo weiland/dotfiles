@@ -56,6 +56,7 @@ in
       imagemagick
       jq
       neovim # due to lua config trouble up here
+      ( nerdfonts.override{ fonts = [ "FiraCode" "JetBrainsMono" "IBMPlexMono" ]; } )
       nix-output-monitor
       nmap
       nodejs
@@ -213,7 +214,7 @@ in
         gsw = "git switch";
         gcb = "git switch -c";
         gsc = "git switch -c";
-        hme = "home-manager edit";
+        hme = "nvim ~/src/weiland/dotfiles/home.nix";
         hms = "home-manager switch --flake ~/src/weiland/dotfiles#pw";
         rgi = "rg -i";
         youtube-dl = "yt-dlp";

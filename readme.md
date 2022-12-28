@@ -2,28 +2,20 @@
 
 ## Prerequisites
 
-1. Install nix
-
-2. Install home-manager
-
-```command
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
-
-nix-shell '<home-manager>' -A install
-
-home-manager --version
-```
+Install nix
 
 ## Usage
 
+In here we use `~/src/weiland/dotfiles` as destination for the dotfiles
+directory.
+
 Now, clone dotfiles:
 
-    git clone https://github.com/weiland/dotfiles.git ~/.config/nixpkgs
+    git clone https://github.com/weiland/dotfiles.git ~/src/weiland/dotfiles
 
 Activate home-manager:
 
-    home-manager switch
+    home-manager switch --flake ~/src/weiland/dotfiles#pw
 
 
 ### Updates
