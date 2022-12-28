@@ -90,7 +90,6 @@ in
     ];
 
     sessionVariables = {
-      EDITOR = "nvim";
       GOPATH = "~/src/go";
 
       DOCKER_SCAN_SUGGEST = "false";
@@ -176,7 +175,6 @@ in
       shellAliases = {
         afk = "open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine";
         # cp = "cp -i";
-        cat = "bat";
         dl = "cd ~/Downloads";
         du = "du -hs";
         fd = "fd --hidden --follow";
@@ -199,6 +197,7 @@ in
         "..." = "../..";
         "...." = "../../..";
         "....." = "../../../..";
+        cat = "bat";
         ga = "git add";
         gap = "git add -p";
         gb = "git branch";
@@ -640,7 +639,7 @@ in
 
   nixpkgs.overlays = [
     (self: super: {
-      starship = pkgsDarwin.starship;
+      #starship = pkgsDarwin.starship;
       #pandoc = pkgsDarwin.pandoc;
       #openconnect = pkgsDarwin.openconnect_openssl;
       #openconnect = pkgsUnstable.openconnect;
