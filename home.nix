@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   pkgsDarwin = import <nixpkgs-darwin> {};
@@ -38,10 +38,8 @@ in
     };
 
     packages = with pkgs; [
-      alacritty
       any-nix-shell
       curl
-      curlie
       deno
       #docker
       #docker-compose
@@ -170,6 +168,8 @@ in
         set fish_color_operator cyan
         set fish_color_escape white
         set fish_color_autosuggestion brblack
+
+        any-nix-shell fish --info-right | source
       '';
       interactiveShellInit = ''
       '';
@@ -680,6 +680,4 @@ in
 
   xdg.dataFile."gnupg/gpg.conf".text = "use-agent";
   xdg.dataFile."gnupg/gpg-agent.conf".text = "pinentry-program /opt/homebrew/bin/pinentry-mac";
-
-  xdg.configFile."alacritty.yml".source = ./config/alacritty/alacritty.yml;
 }
