@@ -468,7 +468,7 @@ in
     };
 
     ssh = {
-      enable = false;
+      enable = true;
 
       includes = [ "~/Documents/Configs/ssh/.ssh/private_ssh_config" ];
 
