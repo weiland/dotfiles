@@ -1,8 +1,12 @@
-# @weiland's dotfiles
+# @weiland's nixy dotfiles
 
 ## Prerequisites
 
-Install nix
+Install nix:
+
+```command
+sh <(curl -L https://nixos.org/nix/install)
+```
 
 ## Usage
 
