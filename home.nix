@@ -203,6 +203,7 @@ in
         gc = "git commit -v";
         gcm = "git switch main";
         gco = "git checkout";
+        gcp = "git commit -vp";
         gd = "git diff";
         gds = "git diff --staged";
         gl = "git pull";
@@ -264,7 +265,7 @@ in
           description = "Go to knowledge";
           body = ''
             cd ~/src/weiland/knowledge
-            vim +CtrlP
+            vim '+Telescope fd'
           '';
         };
         tree = {
