@@ -74,6 +74,7 @@ in
       yt-dlp
 
       yarn
+      nix
       #nodePackages.gulp
       nodePackages.eslint_d
       nodePackages.prettier
