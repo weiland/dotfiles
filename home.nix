@@ -26,10 +26,6 @@ in
 
     file.".gemrc".text = "gem: --no-document";
 
-    # look at the bottom at xdg
-    # file.".gnupg/gpg.conf".text = "use-agent";
-    # file.".gnupg/gpg-agent.conf".text = "pinentry-program /opt/homebrew/bin/pinentry-mac";
-
     file."Library/Application Support/iTerm2/DynamicProfiles/Profiles.json".source = ./config/iterm/Profiles.json;
 
     file.".local/bin" = {
@@ -366,6 +362,7 @@ in
           ui = true;
         };
         difftool.prompt = false;
+        gpg.format = "ssh";
         help = {
           autocorrect = "prompt";
         };
@@ -395,7 +392,7 @@ in
         };
         user.gmail = {
           email = "pasweiland@gmail.com";
-          signingkey = "182E88B5";
+          signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
         };
         url."git@github.com:" = {
           insteadOf = "https://github.com/";
@@ -426,7 +423,6 @@ in
         }
       ];
       signing = {
-        format = "ssh";
         key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
         signByDefault = true;
       };
