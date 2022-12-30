@@ -411,7 +411,7 @@ in
           contents = {
             user = {
               email = "weiland@users.noreply.github.com";
-              signingkey = "DCBE474CB9955FDD372FD3F1B924142E8F592971";
+              # signingkey = "DCBE474CB9955FDD372FD3F1B924142E8F592971";
             };
           };
         }
@@ -420,14 +420,14 @@ in
           contents = {
             user = {
               email = "pascal.weiland@rp-digital.de";
-              signingkey = "34562F25";
+              # signingkey = "34562F25";
             };
           };
         }
       ];
       signing = {
-        key = "8F592971"; # GitHub Key (stopped working?!)
-        gpgPath = "/opt/homebrew/bin/gpg";
+        format = "ssh";
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
         signByDefault = true;
       };
     };
