@@ -22,12 +22,9 @@ Activate home-manager:
     home-manager switch --flake ~/src/weiland/dotfiles#pw
 
 
-### Updates
-
 #### Upgrading Nix
 
-```
-sudo -i sh -c 'nix-channel --update && nix-env -iA nixpkgs.nix && launchctl remove org.nixos.nix-daemon && launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist'
-```
+Nix is upgraded via home-manager.
 
-(Source: https://nixos.org/manual/nix/unstable/installation/upgrading.html)
+
+The old way: https://nixos.org/manual/nix/unstable/installation/upgrading.html

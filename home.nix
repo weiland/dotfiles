@@ -9,7 +9,7 @@ in
 
   home = {
     username = "pw";
-    homeDirectory = "/Users/pw"; # TODO(pascal): Include macos
+    homeDirectory = "/Users/${config.home.username}"; # TODO(pascal): Include macos
 
     # disable last login message
     file.".hushlogin".text = "";
