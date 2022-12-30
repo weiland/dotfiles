@@ -33,6 +33,10 @@ in
       recursive = true;
     };
 
+    file.".ssh/allowed_signers".text = ''
+    pasweiland@gmail.com,weiland@users.noreply.github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9
+    '';
+
     packages = with pkgs; [
       any-nix-shell
       curl
@@ -362,7 +366,12 @@ in
           ui = true;
         };
         difftool.prompt = false;
-        gpg.format = "ssh";
+        gpg = {
+          format = "ssh";
+          ssh = {
+            allowedSignersFile = "~/.ssh/allowed_signers";
+          };
+        };
         help = {
           autocorrect = "prompt";
         };
