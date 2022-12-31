@@ -1,6 +1,7 @@
 local o, wo, bo = vim.o, vim.wo, vim.bo
 o.backup = true
 o.backupdir = vim.fn.stdpath('data')..'/backup'
+o.clipboard = "unnamedplus"
 o.completeopt = "menuone,noinsert,noselect"
 o.exrc = true
 o.hidden = true
@@ -22,7 +23,7 @@ wo.wrap = true
 wo.cursorline = false
 
 bo.expandtab = true
-bo.modeline = true 
+bo.modeline = true
 bo.swapfile = false
 -- bo.shiftwidth=2
 -- bo.tabstop=2
@@ -54,6 +55,15 @@ vim.api.nvim_create_autocmd({"TermOpen"},
 
 local map = vim.api.nvim_set_keymap
 
+map('n', '<leader><leader>', '<c-^>', { noremap=true, silent=true})
+map('n', '<tab>', 'gt', { noremap=true, silent=true})
+map('n', '<S-tab>', 'gT', { noremap=true, silent=true})
+map('n', '<C-j>', '<C-w>j', { noremap=true, silent=true})
+map('n', '<C-k>', '<C-w>k', { noremap=true, silent=true})
+map('n', '<C-h>', '<C-w>h', { noremap=true, silent=true})
+map('n', '<C-l>', '<C-w>l', { noremap=true, silent=true})
+map('i', 'jj', '<esc>', { noremap=true, silent=true})
+
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { noremap=true, silent=true})
-map('n', '<C-l>', ':nohl<CR>', { noremap=true, silent=true})
+-- map('n', '<C-l>', ':nohl<CR>', { noremap=true, silent=true})
 map('n', '<F1>', '<nop>', { noremap=true, silent=true})
