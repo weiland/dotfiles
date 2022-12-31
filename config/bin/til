@@ -1,0 +1,3 @@
+#!/usr/bin/env deno run --allow-run --quiet
+
+console.log('test');
