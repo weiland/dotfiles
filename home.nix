@@ -60,9 +60,9 @@ in
       nodejs
       #openconnect # fails
       pdfgrep
-      # pinentry-mac # package version is too old
       ripgrep
       rustup
+      # (rWrapper.override{ packages = with rPackages; [ tidyverse knitr rtweet rmarkdown instaR ]; } ) # packages don't show up in DataSpell
       shellcheck
       stow
       tealdeer
@@ -75,12 +75,11 @@ in
 
       yarn
       nix
-      #nodePackages.gulp
       nodePackages.eslint_d
       nodePackages.prettier
       nodePackages.serve
       nodePackages.pnpm
-      #nodePackages.elasticdump
+      # qgis # not on macos
     ];
 
     sessionPath = [
@@ -680,7 +679,6 @@ in
 
   xdg.enable = true;
 
-  # extra config
   xdg.configFile."nix/nix.conf".text = ''
     experimental-features = nix-command flakes
   '';
