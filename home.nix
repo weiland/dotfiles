@@ -79,6 +79,8 @@ in
       nodePackages.prettier
       nodePackages.serve
       nodePackages.pnpm
+      nodePackages.typescript
+      nodePackages.typescript-language-server
       # qgis # not on macos
     ];
 
