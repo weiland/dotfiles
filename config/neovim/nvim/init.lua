@@ -65,7 +65,9 @@ local null_ls = require('null-ls')
 null_ls.setup({
   sources = {
     -- js,ts,etc.
-    -- null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.diagnostics.eslint,
+    -- null_ls.builtins.code_actions.eslint_d,
 
     -- shell
     null_ls.builtins.code_actions.shellcheck,
