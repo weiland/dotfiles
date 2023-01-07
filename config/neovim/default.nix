@@ -12,13 +12,17 @@
     neovim-nightly
     lua51Packages.mpack
 
-    nil
-    shellcheck
-
-    statix
-    nixpkgs-fmt
     gitlint
-    hadolint
+    hadolint # docker linting
+    nil # Nix language server
+    nixpkgs-fmt
+    nodePackages.prettier
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+    nodePackages.eslint_d
+    # nodePackages.eslint
+    shellcheck
+    statix # Lints and suggestions for the nix programming language
   ];
 
   home.shellAliases = {
@@ -36,23 +40,25 @@
   xdg.dataFile."nvim/site/pack/nix/start" = {
     recursive = true;
     source = pkgs.linkFarmFromDrvs "neovim-plugins" (with pkgs.vimPlugins; [
-      impatient-nvim
+      impatient-nvim # Speed up loading Lua modules in Neovim to improve startup time using caching
 
       # LSP
-      nvim-lspconfig
-      null-ls-nvim
-      lsp_extensions-nvim
-      nvim-lsputils
-      nvim-lightbulb
-      FixCursorHold-nvim
-      trouble-nvim
-      nvim-code-action-menu
-      lspkind-nvim
-      lsp_signature-nvim
-      lsp-status-nvim
-      fidget-nvim
+      nvim-lspconfig # Quickstart configs for Nvim LSP
+      null-ls-nvim   # Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
+      # lsp_extensions-nvim # archived
+      nvim-lsputils # Better defaults for nvim-lsp actions
 
-      # Treesitter
+      nvim-lightbulb # 💡
+      FixCursorHold-nvim # strongly recommended for nvim-lightbulb
+      nvim-code-action-menu
+
+      trouble-nvim # A pretty diagnostics, references, telescope results, quickfix and location list
+      lspkind-nvim # vscode-like pictograms for neovim lsp completion items (works with LSP, CMP)
+      lsp_signature-nvim # LSP signature hint as you type
+      lsp-status-nvim # Utility functions for diagnostic status and progress messages from LSP servers, for use in the Neovim statusline
+      fidget-nvim # Standalone UI for nvim-lsp progress. Eye candy for the impatient.
+
+      # Treesitter (incremental parsing of buffers) TODO: still required?
       (nvim-treesitter.overrideAttrs (_: {
         postPatch =
           let
@@ -63,42 +69,45 @@
             ln -s ${grammars} parser
           '';
       }))
-      nvim-navic
+      nvim-navic # Simple winbar/statusline plugin that shows your current code context
       spellsitter-nvim
       comment-nvim
 
       # Autocompletion
-      luasnip
-      cmp_luasnip
-
+      luasnip # Snippet Engine for Neovim written in Lua.
+      cmp_luasnip # luasnip completion source for nvim-cmp
       cmp-nvim-lua
       cmp-nvim-lsp
       cmp-vsnip
       cmp-path
-      cmp-emoji
-      cmp-calc
-      cmp-buffer
-      cmp-nvim-lsp-signature-help
-      nvim-cmp
+      # cmp-emoji # useful on non macos systems
+      # cmp-calc
+      cmp-buffer # nvim-cmp source for buffer words
+      cmp-nvim-lsp-signature-help # nvim-cmp source for displaying function signatures with the current parameter emphasized
+      nvim-cmp # completion plugin for neovim written in Lua
 
       # Utils
-      hydra-nvim
-      indent-blankline-nvim
-      nvim-notify
-      telescope-nvim
-      lualine-nvim
-      gitsigns-nvim
-      editorconfig-nvim
-      lush-nvim
-      jellybeans-nvim
-      neogit
-      nvim-tree-lua
+      editorconfig-nvim # soon (0.9.0) redunant
+      gitsigns-nvim # git integration for buffers
+      hydra-nvim # Create custom submodes and menus (known from Emacs)
+      indent-blankline-nvim # adds indentation guides to all lines (uses no conceal and nvims virtual text f)
+      lualine-nvim # blazing fast and easy to configure Neovim statusline written in Lua
+      neogit # magit for neovim
+      nvim-notify # fancy, configurable, notification manager (floating windows)
+      nvim-tree-lua # nvim-tree-lua
+      telescope-nvim # Find, Filter, Preview, Pick. All lua, all the time (requires plenary-nvim)
 
+      # vim classics
       vim-easy-align
-      vim-unimpaired
-      vim-surround
-      vim-repeat
       vim-fish
+      vim-repeat
+      vim-surround
+      vim-unimpaired
+
+      # Themes
+      jellybeans-nvim
+      lush-nvim # since jellybeans-nvim is built with this
+      neovim-ayu
 
       # Dependencies
       popfix # nvim-lsputils, telescope-nvim
