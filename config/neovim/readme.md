@@ -24,3 +24,5 @@ are installed via nix.
 ## Preferences
 
 - leader is `<space>`
+- relative line numbers
+- reopen at last position

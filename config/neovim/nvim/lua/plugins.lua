@@ -3,13 +3,6 @@ local function map(lhs, rhs)
     vim.api.nvim_set_keymap('n', '<leader>' .. lhs, rhs, {noremap=true, silent=true})
 end
 
-require('config.notify')
-require('config.lualine')
-require('config.telescope')
-require('config.gitsigns')
-require('config.cmp')
-require('config.treesitter')
-require('config.hydra')
 require('fidget').setup({
   text = {
     spinner = 'dots_negative',
@@ -19,10 +12,10 @@ require('fidget').setup({
   },
 })
 require('spellsitter').setup()
-require('config.nvim-tree')
 
 vim.g.code_action_menu_show_diff = false
 
+-- lsp-status
 local lsp_status = require('lsp-status')
 lsp_status.register_progress()
 lsp_status.config({
@@ -31,16 +24,18 @@ lsp_status.config({
   status_symbol = ''
 })
 
+-- neogit
 local neogit = require('neogit')
 neogit.setup({})
 
-require('Comment').setup()
+-- require('Comment').setup()
 
 require('indent_blankline').setup {
   show_current_context = true,
   show_current_context_start = false,
 }
 
+-- easy-align
 vim.api.nvim_set_keymap("x", "<leader>a", "<Plug>(EasyAlign)", {})
 vim.api.nvim_set_keymap("n", "<leader>a", "<Plug>(EasyAlign)", {})
 
@@ -48,6 +43,7 @@ vim.api.nvim_set_keymap("n", "<leader>a", "<Plug>(EasyAlign)", {})
 vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 
+-- null-ls
 local null_ls = require('null-ls')
 null_ls.setup({
   sources = {
@@ -73,6 +69,7 @@ null_ls.setup({
   on_attach = require('lsp').on_attach
 })
 
+-- lspconfig
 require('lspconfig').nil_ls.setup({
   autostart = true,
   capabilities = require('lsp').capabilities(),
