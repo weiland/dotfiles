@@ -105,10 +105,11 @@ in
 
       MANPAGER = "nvim +Man!";
 
-      XDG_CACHE_HOME  = "$HOME/.cache";
-      XDG_CONFIG_HOME = "$HOME/.config";
-      XDG_DATA_HOME   = "$HOME/.local/share";
-      XDG_BIN_HOME    = "$HOME/.local/bin";
+      # XDG_CACHE_HOME  = "$HOME/.cache"; # is conflicting (but seems to already have the right value)
+      # XDG_CONFIG_HOME = "$HOME/.config";
+      # XDG_DATA_HOME   = "$HOME/.local/share";
+      # XDG_STATE_HOME   = "$HOME/.local/state";
+      XDG_BIN_HOME = "$HOME/.local/bin";
     };
 
     # will be defined in flake (for standalone)
