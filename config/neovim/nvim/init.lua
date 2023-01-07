@@ -10,3 +10,5 @@ require('autocmds')
 require('mappings')
 -- plugin configurations
 require('plugins')
+-- colorscheme
+require('colorscheme')

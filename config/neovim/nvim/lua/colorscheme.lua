@@ -10,4 +10,5 @@
 -- })
 -- vim.cmd 'colorscheme ayu-mirage'
 -- require('ayu').colorscheme()
-vim.cmd 'colorscheme jellybeans'
+
+vim.cmd 'colorscheme jellybeans-nvim'
