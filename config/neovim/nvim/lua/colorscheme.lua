@@ -8,5 +8,6 @@
 --     ['@punctuation'] = {fg = colors.fg},
 --   },
 -- })
--- vim.cmd 'colorscheme ayu'
-require('ayu').colorscheme()
+-- vim.cmd 'colorscheme ayu-mirage'
+-- require('ayu').colorscheme()
+vim.cmd 'colorscheme jellybeans'
