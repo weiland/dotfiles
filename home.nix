@@ -81,7 +81,7 @@ in
       nodePackages.typescript
       nodePackages.typescript-language-server
       nodePackages.eslint_d
-      nodePackages.eslint
+      # nodePackages.eslint
       nodePackages.prettier
       # qgis # not on macos
     ];
