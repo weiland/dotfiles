@@ -9,6 +9,18 @@
 
 are installed via nix.
 
+- impatient
+- nvim-lspconfig
+- null-ls
+- nvim-lsputils
+- nvim-lightbulb
+- trouble-nvim
+- ...
+- nvim-cmp
+- telescope-nvim
+- lusnip
+- jellybeans-nvim
+- vim-* basics
 
 
 ## Features

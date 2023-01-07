@@ -37,9 +37,9 @@
       };
     };
 
-  xdg.dataFile."nvim/site/pack/nix/start" = {
-    recursive = true;
-    source = pkgs.linkFarmFromDrvs "neovim-plugins" (with pkgs.vimPlugins; [
+
+    xdg.dataFile."nvim/site/pack/nix/start".recursive = true;
+    xdg.dataFile."nvim/site/pack/nix/start".source = pkgs.linkFarmFromDrvs "neovim-plugins" (with pkgs.vimPlugins; [
       impatient-nvim # Speed up loading Lua modules in Neovim to improve startup time using caching
 
       # LSP
@@ -114,5 +114,5 @@
       plenary-nvim # crates-nvim, telescope-nvim, gitsigns-nvim, neogit
       nvim-web-devicons
     ]);
-  };
+
 }
