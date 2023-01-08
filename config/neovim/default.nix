@@ -12,6 +12,7 @@
     neovim-nightly
     lua51Packages.mpack
 
+    # cargo # required for https://github.com/jeertmans/languagetool-rust
     gitlint
     hadolint # docker linting
     nil # Nix language server
