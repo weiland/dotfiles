@@ -149,12 +149,29 @@
         "type": "github"
       }
     },
+    "nixpkgs-neovim": {
+      "locked": {
+        "lastModified": 1672414655,
+        "narHash": "sha256-2F72ALq4wZQJYnHHAdwbkgGS9lu3q+M0ytS94Z+38/k=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "5d6f45172279af8822d44a4d748de3e3704a770b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "5d6f45172279af8822d44a4d748de3e3704a770b",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-neovim": "nixpkgs-neovim"
       }
     },
     "utils": {

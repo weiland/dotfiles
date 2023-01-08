@@ -37,7 +37,6 @@
       };
     };
 
-
     xdg.dataFile."nvim/site/pack/nix/start".recursive = true;
     xdg.dataFile."nvim/site/pack/nix/start".source = pkgs.linkFarmFromDrvs "neovim-plugins" (with pkgs.vimPlugins; [
       impatient-nvim # Speed up loading Lua modules in Neovim to improve startup time using caching
@@ -108,6 +107,8 @@
       jellybeans-nvim
       lush-nvim # since jellybeans-nvim is built with this
       neovim-ayu
+      nord-nvim
+      onenord-nvim
 
       # Dependencies
       popfix # nvim-lsputils, telescope-nvim
