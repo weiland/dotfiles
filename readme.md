@@ -48,6 +48,24 @@ then update home-manager
 home-manager switch --flake .#pw
 ```
 
+### Cleaning up
+
+Nix garbage collection:
+
+    nix-collect-garbage --delete-older-than 30d
+
+    # or
+
+    nix-collect-garbage -d
+
+    # collect everything (also profile etc)
+    sudo nix-collect-garbage -d
+
+Optimise nix store:
+
+    nix-store --optimise -v
+
+
 #### Error handling
 
 Select a previous home-manager generation:
