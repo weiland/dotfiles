@@ -28,7 +28,7 @@ o.updatetime = 100
 
 wo.cursorline = false
 wo.number = true
-wo.relativenumber = true
+-- wo.relativenumber = true
 wo.wrap = true
 
 bo.expandtab = true

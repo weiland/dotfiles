@@ -2,8 +2,8 @@ if pcall(require, 'impatient') then
   require('impatient')
 end
 
--- general neovim options
-require('settings')
+-- general neovim options (without plugins)
+require('options')
 -- autocmds
 require('autocmds')
 -- general mappings

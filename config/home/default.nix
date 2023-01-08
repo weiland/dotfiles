@@ -53,7 +53,7 @@ in
       httpie
       imagemagick
       jq
-      neovim # due to lua config trouble up here
+      # neovim # due to lua config trouble up here
       ( nerdfonts.override{ fonts = [ "FiraCode" "JetBrainsMono" "IBMPlexMono" ]; } )
       nix-output-monitor
       nmap
@@ -82,8 +82,8 @@ in
 
     sessionPath = [
       "/opt/homebrew/bin/"
-      "~/.local/bin"
-      "~/.cache/cargo/bin"
+      "$HOME/.local/bin"
+      "/Users/${config.home.username}/.cache/cargo/bin"
     ];
 
     sessionVariables = {
@@ -152,6 +152,9 @@ in
           };
         }
       ];
+      # loginShellInit = '' # is invoked too often and too slowing down shell startup
+      # ssh-add --apple-load-keychain
+      # '';
       shellInit = ''
         # Set syntax highlighting colours; var names defined here:
         set fish_color_normal normal
@@ -214,7 +217,7 @@ in
         gsw = "git switch";
         gcb = "git switch -c";
         gsc = "git switch -c";
-        hme = "nvim ~/src/weiland/dotfiles/home.nix";
+        hme = "nvim ~/src/weiland/dotfiles/config/home/default.nix";
         hms = "home-manager switch --flake ~/src/weiland/dotfiles#pw";
         rgi = "rg -i";
         youtube-dl = "yt-dlp";
@@ -249,10 +252,7 @@ in
           description = "reload fish config";
           body = "source ~/.config/fish/config.fish";
         };
-        fish_greeting = {
-          description = "Greeting to show when starting a fish shell";
-          body = "";
-        };
+        fish_greeting.body = "";
         fish_user_key_bindings = {
           description = "Set custom key bindings";
           body = ''

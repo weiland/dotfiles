@@ -28,7 +28,7 @@ lsp_status.config({
 local neogit = require('neogit')
 neogit.setup({})
 
--- require('Comment').setup()
+require('Comment').setup()
 
 require('indent_blankline').setup {
   show_current_context = true,
@@ -71,6 +71,9 @@ null_ls.setup({
 
     -- gitlint
     null_ls.builtins.diagnostics.gitlint,
+
+    -- markdown, text (cargo install languagetool-rust --features full)
+    null_ls.builtins.code_actions.ltrs
   },
   on_attach = require('lsp').on_attach
 })
