@@ -1,11 +1,11 @@
 local cmd = vim.cmd
 local M = {}
 
-function lsp_formatting(bufnr) 
+function lsp_formatting(bufnr)
   vim.lsp.buf.format({
     filter = function(client)
       -- filter out clients that you don't want to use
-      return client.name ~= "tsserver" 
+      return client.name ~= "tsserver"
     end,
     bufnr = bufnr,
 })
@@ -20,7 +20,6 @@ function M.on_attach(client, bufnr)
       { name = 'nvim_lsp_signature_help' },
       { name = 'luasnip' },
       { name = 'crates' },
-      { name = 'emoji' },
       { name = 'buffer', keyword_length = 3, max_item_count = 4}
     }
   })
@@ -105,17 +104,17 @@ end
 function M.status()
   if next(vim.lsp.buf_get_clients()) then
     return vim.trim(require('lsp-status').status())
-  else 
+  else
     return nil
   end
 end
 
 
-function M.lsp_keybinding(bufnr) 
+function M.lsp_keybinding(bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
   local opts = { noremap=true, silent=true }
-  
+
 
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)

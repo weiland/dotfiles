@@ -40,6 +40,12 @@ vim.api.nvim_set_keymap("x", "<leader>a", "<Plug>(EasyAlign)", {})
 vim.api.nvim_set_keymap("n", "<leader>a", "<Plug>(EasyAlign)", {})
 
 -- luasnip
+local ls = require("luasnip")
+ls.add_snippets("all", {
+	ls.snippet("todo", {
+    ls.text_node("TODO(pascal): "),
+	})
+})
 vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 

@@ -18,7 +18,7 @@ are installed via nix.
 - ...
 - nvim-cmp
 - telescope-nvim
-- lusnip
+- luasnip
 - jellybeans-nvim
 - vim-* basics
 

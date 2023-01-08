@@ -3,7 +3,9 @@ local map = vim.api.nvim_set_keymap
 vim.g.mapleader = " "
 
 map('n', '<leader><leader>', '<c-^>', { noremap=true, silent=true})
-map('n', '<tab>', 'gt', { noremap=true, silent=true})
+-- map('n', '<tab>', 'gt', { noremap=true, silent=true})
+-- map('i', '<tab>', 'gt', { silent=true })
+-- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 map('n', '<S-tab>', 'gT', { noremap=true, silent=true})
 map('n', '<C-j>', '<C-w>j', { noremap=true, silent=true})
 map('n', '<C-k>', '<C-w>k', { noremap=true, silent=true})
