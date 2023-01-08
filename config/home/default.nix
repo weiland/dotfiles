@@ -26,10 +26,10 @@ in
 
     file.".gemrc".text = "gem: --no-document";
 
-    file."Library/Application Support/iTerm2/DynamicProfiles/Profiles.json".source = ./config/iterm/Profiles.json;
+    file."Library/Application Support/iTerm2/DynamicProfiles/Profiles.json".source = ../macos/iterm/Profiles.json;
 
     file.".local/bin" = {
-      source = ./config/bin;
+      source = ../bin;
       recursive = true;
     };
 
@@ -356,8 +356,6 @@ in
       extraConfig = {
         core = {
           editor = "nvim";
-          # https://github.com/NixOS/nixpkgs/issues/15686#issuecomment-865928923
-          # sshCommand = "/usr/bin/ssh"; # macOS thing
         };
         credential.helper = "osxkeychain";
         color = {
@@ -435,16 +433,8 @@ in
       };
     };
 
-    gpg = {
-      enable = false; # TODO: add keys
-      # homedir = "${config.xdg.dataHome}/gnupg";
-      # mutableKeys = true;
-      # mutableTrust = true;
-    };
-
     neovim = {
-      enable = false;
-      vimAlias = true;
+      enable = false; # done via xdg for proper lua support
     };
 
     starship = {

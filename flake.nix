@@ -27,7 +27,7 @@
           };
 
           modules = [
-            ./home.nix
+            ./config/home
             ./config/neovim
           ];
         };
