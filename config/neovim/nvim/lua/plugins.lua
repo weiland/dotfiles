@@ -66,6 +66,9 @@ null_ls.setup({
     -- Nix
     null_ls.builtins.code_actions.statix,
 
+    -- Elixir
+    null_ls.builtins.diagnostics.credo,
+
     -- docker
     null_ls.builtins.diagnostics.hadolint,
 
@@ -73,7 +76,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.gitlint,
 
     -- markdown, text (cargo install languagetool-rust --features full)
-    null_ls.builtins.code_actions.ltrs
+    -- null_ls.builtins.code_actions.ltrs, -- disabled due to 1500 text limit
   },
   on_attach = require('lsp').on_attach
 })

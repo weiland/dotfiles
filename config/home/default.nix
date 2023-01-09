@@ -337,7 +337,6 @@ in
     git = {
       enable = true;
       userName = "Pascal Weiland";
-      # userEmail = "commits@mailbox.org";
       userEmail = "weiland@users.noreply.github.com";
       aliases = {
         identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :";
@@ -427,6 +426,7 @@ in
           };
         }
       ];
+      lfs.enable = true;
       signing = {
         key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdCIgV4GeKOXvYs4aPCQ4li8/5xLu7cpIpWzJIsFkb9";
         signByDefault = true;
