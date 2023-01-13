@@ -101,7 +101,7 @@ require('lspconfig').nil_ls.setup({
 cmd 'silent! helptags ALL'
 cmd 'unmap Y'
 
--- headlines
+-- headlines (config with nord theme)
 require('headlines').setup({
     markdown = {
         headline_highlights = {

@@ -1,2 +1,2 @@
 -- require('ayu').colorscheme()
-vim.cmd 'colorscheme onenord'
+vim.cmd 'colorscheme nord'
