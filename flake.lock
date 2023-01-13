@@ -115,6 +115,22 @@
         "type": "github"
       }
     },
+    "nixos-small": {
+      "locked": {
+        "lastModified": 1673609238,
+        "narHash": "sha256-mqbIEVpJqzYjNf8Bt7kM88206wvvFM9PCE23m8psGrg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "fa22ac862f74252d896d4ac7b76e00034682eacf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable-small",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1672953546,
@@ -127,22 +143,6 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-fish-3-6-0": {
-      "locked": {
-        "lastModified": 1673127037,
-        "narHash": "sha256-L+Nbuy7mYwaIBv2SoZJHpvov3J6iAkbat5tS8w5CRIA=",
-        "owner": "JamieMagee",
-        "repo": "nixpkgs",
-        "rev": "f43cd3743fe3d12e7e0b0c75b9c941388b7aee9e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "JamieMagee",
-        "ref": "fish-3.6.0",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -186,8 +186,8 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
+        "nixos-small": "nixos-small",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-fish-3-6-0": "nixpkgs-fish-3-6-0",
         "nixpkgs-neovim": "nixpkgs-neovim"
       }
     },

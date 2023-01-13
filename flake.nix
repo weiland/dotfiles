@@ -5,7 +5,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-fish-3-6-0.url = "github:JamieMagee/nixpkgs/fish-3.6.0";
+    nixos-small.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     nixpkgs-neovim.url = "github:nixos/nixpkgs/5d6f45172279af8822d44a4d748de3e3704a770b";
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
@@ -22,7 +22,7 @@
           pkgs = import inputs.nixpkgs {
             system = "aarch64-darwin";
             overlays = [ inputs.neovim-nightly-overlay.overlay (final: prev: {
-                inherit (inputs.nixpkgs-fish-3-6-0.legacyPackages.${final.stdenv.system}) fish;
+                inherit (inputs.nixos-small.legacyPackages.${final.stdenv.system}) fish;
                 }) ];
           };
 
