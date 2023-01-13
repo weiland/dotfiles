@@ -101,6 +101,23 @@ require('lspconfig').nil_ls.setup({
 cmd 'silent! helptags ALL'
 cmd 'unmap Y'
 
+-- headlines
+require('headlines').setup({
+    markdown = {
+        headline_highlights = {
+            'Headline1',
+            'Headline2',
+            'Headline3',
+            'Headline4',
+            'Headline5',
+            'Headline6',
+        },
+        codeblock_highlight = 'CodeBlock',
+        dash_highlight = 'Dash',
+        quote_highlight = 'Quote',
+    },
+})
+
 -- Spelling
 -- Correct current word
 vim.keymap.set('n', 'z=',

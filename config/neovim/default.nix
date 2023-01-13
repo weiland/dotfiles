@@ -2,7 +2,19 @@
 , pkgs
 , lib
 , ...
-}: {
+}: let
+headlines-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  # name = "headlines-nvim";
+  pname = "headlines-nvim";
+  version = "2022-07-19";
+  src = pkgs.fetchFromGitHub {
+    owner = "lukas-reineke";
+    repo = "headlines.nvim";
+    rev = "1cd93a641c03419bb255f8b3fe734451517763b1";
+    sha256 = "1035jmy21in2vc56pcyvprwa0c1wg277vdad3cgx55aqsj3labqb";
+  };
+};
+in {
   home.sessionVariables = {
     EDITOR = "nvim";
     MANPAGER = "nvim +Man!";
@@ -115,6 +127,9 @@
       popfix # nvim-lsputils, telescope-nvim
       plenary-nvim # crates-nvim, telescope-nvim, gitsigns-nvim, neogit
       nvim-web-devicons
+
+      headlines-nvim
     ]);
+
 
 }
