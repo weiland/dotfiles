@@ -270,7 +270,7 @@ in
         tree = {
           description = "Tree of directory (aliasing exa)";
           body = ''
-            command exa --tree --all $argv
+            command exa --tree --all --ignore-glob .git $argv
           '';
         };
         lastfm = {
