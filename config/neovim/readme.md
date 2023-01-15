@@ -38,3 +38,4 @@ are installed via nix.
 - leader is `<space>`
 - relative line numbers
 - reopen at last position
+- change workdirectory to buffer (`browsedir=buffer` and `autochdir`)
