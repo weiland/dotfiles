@@ -85,6 +85,8 @@ in {
       spellsitter-nvim
       comment-nvim
 
+      vimtex
+
       # Autocompletion
       luasnip # Snippet Engine for Neovim written in Lua.
       cmp_luasnip # luasnip completion source for nvim-cmp
