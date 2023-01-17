@@ -39,3 +39,10 @@ are installed via nix.
 - relative line numbers
 - reopen at last position
 - change workdirectory to buffer (`browsedir=buffer` and `autochdir`)
+
+## Lua Gotchas
+
+- use `vim.keymap.set` over `vim.api.nvim_set_keymap`
+- `vim.keymap.set` is by default nonrecursive (`noremap`) (if _rhs_ is also a
+  mapping, then `{ remap = true }` should be set
+- local variables (`let g:var1 = 1`) are `vim.g.var1 = 1`
