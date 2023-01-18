@@ -446,7 +446,7 @@ in
           charging_symbol = "⚡️";
           discharging_symbol = "💀";
         };
-        command_timeout = 100;
+        command_timeout = 256;
         directory = {
           truncation_length = 5;
           truncation_symbol = "…/";
