@@ -1,12 +1,26 @@
 # @weiland's nixy dotfiles
 
+
+## Old dotfiles
+
+My old dotfiles (managed using gnu `stow` for symlinking) can be found in the
+[`dotfiles`](https://github.com/weiland/dotfiles/tree/dotfiles) branch.
 ## Prerequisites
 
-Install nix:
+Install **nix** as _multi-user installation_ (using _fish_):
 
-```command
+```fish
+sh (curl -L https://nixos.org/nix/install | psub)
+```
+
+<details>
+<symmary>or when using _zsh_/_bash_:</summary>
+
+```bash
 sh <(curl -L https://nixos.org/nix/install)
 ```
+
+</details>
 
 ## Usage
 
@@ -38,13 +52,13 @@ Nix is upgraded via home-manager.
 
 ### Upgrade packages
 
-```command
+```sh
 nix flake update
 ```
 
 then update home-manager
 
-```command
+```bash
 home-manager switch --flake .#pw
 ```
 
