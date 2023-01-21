@@ -50,15 +50,20 @@ vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 
 -- null-ls
+local eslint_options = {
+        condition = function(utils)
+            return utils.root_has_file({ ".eslintrc.json", ".eslintrc.js", ".eslintrc" })
+        end,
+    }
 local null_ls = require('null-ls')
 null_ls.setup({
   sources = {
     -- js,ts,etc.
     -- null_ls.builtins.formatting.prettier,
     -- null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.formatting.eslint_d,
-    null_ls.builtins.diagnostics.eslint_d,
-    null_ls.builtins.code_actions.eslint_d,
+    null_ls.builtins.formatting.eslint_d.with(eslint_options),
+    null_ls.builtins.diagnostics.eslint_d.with(eslint_options),
+    null_ls.builtins.code_actions.eslint_d.with(eslint_options),
 
     -- shell
     null_ls.builtins.code_actions.shellcheck,
@@ -83,8 +88,9 @@ null_ls.setup({
   on_attach = require('lsp').on_attach
 })
 
--- lspconfig
-require('lspconfig').nil_ls.setup({
+-- nil_ls setup using lspconfig
+local lspconfig = require('lspconfig')
+lspconfig.nil_ls.setup({
   autostart = true,
   capabilities = require('lsp').capabilities(),
   on_attach = function(client, bufnr)
@@ -98,6 +104,7 @@ require('lspconfig').nil_ls.setup({
     },
   },
 })
+lspconfig.denols.setup{}
 
 -- generate help tags for all plugins
 cmd 'silent! helptags ALL'
