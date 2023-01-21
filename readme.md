@@ -1,11 +1,32 @@
-# @weiland's nixy dotfiles
+# @weiland dotfiles
+
+These are my old dotfiles.
+
+My new/current ones can be found in the `main` branch.
 
 ## Prerequisites
 
-1. have tools installed
+Have a look at https://github.com/weiland/mac-setup
+
+## Installtion (using GNU stow)
+
+```bash
+# prepare directory
+mkdir -p ~/code
+
+# clone
+git clone --branch dotfiles https://github.com/weiland/dotfiles ~/code/dotfiles
+cd ~/code/dotfiles
+
+# link dotfiles (using GNU stow)
+stow -v -t $HOME fish starship git nvim ssh tmux curl
+```
 
 
-## Installation
+## Installation using nix
+
+<details>
+<summary>exapnd on installing nix on macOS</summary>
 
 Install Nix:
 
@@ -74,18 +95,4 @@ We can verify that the config is found via
 
 The darwin-configuration.nix should be in the `~/.config/nixpkgs/` directory.
 
-
-## Old Installtion
-
-```sh
-# prepare directory
-mkdir -p ~/code
-
-# clone
-git clone https://github.com/weiland/dotfiles ~/code/dotfiles
-cd ~/code/dotfiles
-
-# link dotfiles (using GNU stow)
-stow -v -t $HOME fish starship git nvim ssh tmux curl
-```
-
+</details>
