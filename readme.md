@@ -14,7 +14,7 @@ sh (curl -L https://nixos.org/nix/install | psub)
 ```
 
 <details>
-<symmary>or when using _zsh_/_bash_:</summary>
+<summary>or when using _zsh_/_bash_:</summary>
 
 ```bash
 sh <(curl -L https://nixos.org/nix/install)
