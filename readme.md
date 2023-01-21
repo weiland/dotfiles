@@ -1,4 +1,4 @@
-# @weiland's nixy dotfiles
+# [@weiland](https://github.com/weiland/dotfiles)'s nixy dotfiles and other nix configs
 
 
 ## Old dotfiles
