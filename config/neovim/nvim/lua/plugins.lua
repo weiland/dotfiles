@@ -109,7 +109,10 @@ lspconfig.nil_ls.setup({
 -- deno
 local util = require 'lspconfig.util'
 lspconfig.denols.setup({
-  root_dir = util.root_pattern("deno.json", "deno.jsonc")
+  -- root_dir = util.root_pattern("deno.json", "deno.jsonc")
+  init_options = {
+    enable = false
+  }
 })
 
 -- generate help tags for all plugins
