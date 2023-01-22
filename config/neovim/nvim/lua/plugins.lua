@@ -90,9 +90,10 @@ null_ls.setup({
 
 -- nil_ls setup using lspconfig
 local lspconfig = require('lspconfig')
+local capabilities = require('lsp').capabilities(),
 lspconfig.nil_ls.setup({
   autostart = true,
-  capabilities = require('lsp').capabilities(),
+  capabilities = capabilities,
   on_attach = function(client, bufnr)
     require('lsp').on_attach(client, bufnr)
   end,
@@ -104,6 +105,8 @@ lspconfig.nil_ls.setup({
     },
   },
 })
+
+-- deno
 local util = require 'lspconfig.util'
 lspconfig.denols.setup({
   root_dir = util.root_pattern("deno.json", "deno.jsonc")
