@@ -47,7 +47,7 @@ in
       fd
       ffmpeg
       fira-code
-      fzf
+      # fzf
       git-open
       htop
       httpie

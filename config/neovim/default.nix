@@ -6,12 +6,12 @@
 headlines-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
   # name = "headlines-nvim";
   pname = "headlines-nvim";
-  version = "2022-07-19";
+  version = "2023-03-29";
   src = pkgs.fetchFromGitHub {
     owner = "lukas-reineke";
     repo = "headlines.nvim";
-    rev = "1cd93a641c03419bb255f8b3fe734451517763b1";
-    sha256 = "1035jmy21in2vc56pcyvprwa0c1wg277vdad3cgx55aqsj3labqb";
+    rev = "ddef41b2664f0ce25fe76520d708e2dc9dfebd70";
+    sha256 = "02zri3vmzjxv47qnlll3nf71i9ji8nhdabpvf4566i7iwwagqpym";
   };
 };
 in {
@@ -21,7 +21,8 @@ in {
   };
 
   home.packages = with pkgs; [
-    neovim-nightly
+    # neovim-nightly
+    neovim
     lua51Packages.mpack
 
     # cargo # required for https://github.com/jeertmans/languagetool-rust
@@ -68,19 +69,17 @@ in {
       lspkind-nvim # vscode-like pictograms for neovim lsp completion items (works with LSP, CMP)
       lsp_signature-nvim # LSP signature hint as you type
       lsp-status-nvim # Utility functions for diagnostic status and progress messages from LSP servers, for use in the Neovim statusline
-      fidget-nvim # Standalone UI for nvim-lsp progress. Eye candy for the impatient.
-
-      # Treesitter (incremental parsing of buffers) TODO: still required?
-      (nvim-treesitter.overrideAttrs (_: {
-        postPatch =
-          let
-            grammars = pkgs.tree-sitter.withPlugins (ps: (_: nvim-treesitter.allGrammars) (ps // builtGrammars));
-          in
-          ''
-            rm -r parser
-            ln -s ${grammars} parser
-          '';
+      # fidget-nvim # Standalone UI for nvim-lsp progress. Eye candy for the impatient.
+      (fidget-nvim.overrideAttrs (oldAttrs: {
+        src = pkgs.fetchFromGitHub {
+          owner = "j-hui";
+          repo = "fidget.nvim";
+          rev = "90c22e47be057562ee9566bad313ad42d622c1d3";
+          hash = "sha256-N3O/AvsD6Ckd62kDEN4z/K5A3SZNR15DnQeZhH6/Rr0=";
+        };
       }))
+
+      nvim-treesitter
       nvim-navic # Simple winbar/statusline plugin that shows your current code context
       spellsitter-nvim
       comment-nvim
