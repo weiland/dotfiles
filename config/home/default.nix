@@ -355,6 +355,7 @@ in
       extraConfig = {
         core = {
           editor = "nvim";
+          # pager = "less -F -X";
         };
         credential.helper = "osxkeychain";
         color = {

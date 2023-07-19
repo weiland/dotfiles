@@ -130,7 +130,7 @@ in {
       nvim-web-devicons
 
       headlines-nvim
-    ]);
+    ] ++ (builtins.attrValues nvim-treesitter.grammarPlugins));
 
 
 }
