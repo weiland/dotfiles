@@ -109,10 +109,15 @@ lspconfig.nil_ls.setup({
 -- deno
 local util = require 'lspconfig.util'
 lspconfig.denols.setup({
-  -- root_dir = util.root_pattern("deno.json", "deno.jsonc")
-  init_options = {
-    enable = false
-  }
+  on_attach = require('lsp').on_attach,
+  root_dir = util.root_pattern("deno.json", "deno.jsonc"),
+})
+
+lspconfig.tsserver.setup({
+  capabilities = capabilities,
+  on_attach = require('lsp').on_attach,
+  root_dir =  util.root_pattern('package.json'),
+  single_file_support = false,
 })
 
 -- generate help tags for all plugins
