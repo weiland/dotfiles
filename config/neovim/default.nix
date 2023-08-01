@@ -34,6 +34,8 @@ in {
     nodePackages.typescript
     nodePackages.typescript-language-server
     nodePackages.eslint_d
+    nodePackages.svelte-language-server
+    nodePackages.vue-language-server
     # nodePackages.eslint
     shellcheck
     statix # Lints and suggestions for the nix programming language
@@ -81,7 +83,6 @@ in {
 
       nvim-treesitter
       nvim-navic # Simple winbar/statusline plugin that shows your current code context
-      spellsitter-nvim
       comment-nvim
 
       vimtex

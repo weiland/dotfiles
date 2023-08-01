@@ -1,7 +1,10 @@
 local cmd = vim.cmd
 
--- Hightlight selection on yank
-cmd 'au TextYankPost * silent! lua vim.highlight.on_yank()'
+-- Highlight selection on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function() vim.highlight.on_yank() end,
+  desc = "Briefly highlight selection on yank."
+})
 
 -- Return to last edit position when opening files (instead of relativenumbers)
 -- autocmd BufReadPost *
@@ -19,4 +22,5 @@ api.nvim_create_autocmd({ 'BufRead', 'BufReadPost' }, {
       api.nvim_win_set_cursor(0, { row, column })
     end
   end,
+  desc = "Remember last cursor position, except for git commits."
 })

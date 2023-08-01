@@ -11,7 +11,6 @@ require('fidget').setup({
     blend = 0,
   },
 })
-require('spellsitter').setup()
 
 vim.g.code_action_menu_show_diff = false
 
@@ -88,6 +87,11 @@ null_ls.setup({
   on_attach = require('lsp').on_attach
 })
 
+-- comes from denols
+vim.g.markdown_fenced_languages = {
+  "ts=typescript"
+}
+
 -- nil_ls setup using lspconfig
 local lspconfig = require('lspconfig')
 local capabilities = require('lsp').capabilities(),
@@ -119,6 +123,13 @@ lspconfig.tsserver.setup({
   root_dir =  util.root_pattern('package.json'),
   single_file_support = false,
 })
+
+lspconfig.svelte.setup({
+  on_attach = require('lsp').on_attach,
+  -- root_dir =  util.root_pattern('svelte.config.js'),
+})
+
+lspconfig.volar.setup{}
 
 -- generate help tags for all plugins
 cmd 'silent! helptags ALL'

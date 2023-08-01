@@ -2,7 +2,7 @@ require('notify').setup({
   stages = "slide"
 })
 
--- match LSP 
+-- match LSP
 -- match group 1: everthing inside [ ]
 -- match group 2: reset of input
 --
@@ -15,7 +15,7 @@ function notify_filter(msg, log_level, opts)
   if msg:find("does not support documentSymbols") then
     return
   end
-  
+
   -- rust_analyzer: -32801: waiting for cargo metadata or cargo check
   if msg:find("waiting for cargo metadata or cargo check") then
     -- this error is emited on every startup, just ignore it -.-
