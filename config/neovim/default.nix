@@ -31,7 +31,7 @@ in {
     nil # Nix language server
     nixpkgs-fmt
     # nodePackages.prettier
-    prettierd
+    # prettierd
     nodePackages.typescript
     nodePackages.typescript-language-server
     nodePackages.eslint_d
