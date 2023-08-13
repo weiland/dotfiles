@@ -31,12 +31,13 @@ wo.number = true
 -- wo.relativenumber = true
 wo.wrap = true
 
-bo.expandtab = true
 bo.modeline = true
 bo.swapfile = false
--- bo.shiftwidth=2
--- bo.tabstop=2
 bo.undofile = true
+
+bo.shiftwidth=4
+bo.tabstop=4
+bo.expandtab = false -- do not expand tab to spaces
 
 if vim.fn.executable('rg') then
   o.grepprg = "rg -H --no-heading --vimgrep"

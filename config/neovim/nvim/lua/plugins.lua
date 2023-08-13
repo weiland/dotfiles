@@ -51,14 +51,19 @@ vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 -- null-ls
 local eslint_options = {
         condition = function(utils)
-            return utils.root_has_file({ ".eslintrc.json", ".eslintrc.js", ".eslintrc" })
+            return utils.root_has_file({ ".eslintrc.json", ".eslintrc.cjs", ".eslintrc.js", ".eslintrc" })
+        end,
+    }
+local prettierd_options = {
+        condition = function(utils)
+            return utils.root_has_file({ ".prettierrc.json", ".prettierrc.cjs", ".prettierrc.js", ".prettierrc" })
         end,
     }
 local null_ls = require('null-ls')
 null_ls.setup({
   sources = {
     -- js,ts,etc.
-    -- null_ls.builtins.formatting.prettier,
+    -- null_ls.builtins.formatting.prettierd.with(prettierd_options), -- daemon continues to run
     -- null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.formatting.eslint_d.with(eslint_options),
     null_ls.builtins.diagnostics.eslint_d.with(eslint_options),

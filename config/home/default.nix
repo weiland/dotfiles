@@ -267,6 +267,13 @@ in
             vim '+Telescope fd'
           '';
         };
+        kk = {
+          description = "Go to knowledge and livegrep";
+          body = ''
+            cd ~/src/weiland/knowledge
+            vim '+Telescope live_grep'
+          '';
+        };
         tree = {
           description = "Tree of directory (aliasing exa)";
           body = ''

@@ -30,7 +30,8 @@ in {
     hadolint # docker linting
     nil # Nix language server
     nixpkgs-fmt
-    nodePackages.prettier
+    # nodePackages.prettier
+    prettierd
     nodePackages.typescript
     nodePackages.typescript-language-server
     nodePackages.eslint_d

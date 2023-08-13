@@ -1,10 +1,11 @@
 local Hydra = require('hydra')
+local cmd = require('hydra.keymap-util').cmd
 local gitsigns = require('gitsigns')
 local telescope = require('telescope')
 
 local git_hint = [[
  _J_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
- _K_: prev hunk   _u_: undo stage hunk   _p_: preview hunk   _B_: blame show full 
+ _K_: prev hunk   _u_: undo stage hunk   _p_: preview hunk   _B_: blame show full
  ^ ^              _S_: stage buffer      ^ ^                 _/_: show base file
  ^
  ^ ^              _<Enter>_: Neogit              _q_: exit
@@ -56,9 +57,9 @@ Hydra({
    }
 })
 
-local function cmd(command)
-   return table.concat({ '<Cmd>', command, '<CR>' })
-end
+-- local function cmd(command)
+--    return table.concat({ '<Cmd>', command, '<CR>' })
+-- end
 
 local telescope_hint = [[
                  _f_: files       _b_: buffers
@@ -69,7 +70,7 @@ local telescope_hint = [[
  🭋█🬝🮄🮄🮄🮄🮄🮄🮄🮄🬆█🭀  _k_: keymap      _;_: commands history
  🭤🭒🬺🬹🬱🬭🬭🬭🬭🬵🬹🬹🭝🭙  _r_: registers   _?_: search history
 
-                 _<Enter>_: Telescope           _<Esc>_ 
+                 _<Enter>_: Telescope           _<Esc>_
 ]]
 
 Hydra({
@@ -86,7 +87,7 @@ Hydra({
    mode = 'n',
    body = '<Leader>p',
    heads = {
-      { 'f', require('telescope.builtin').find_files },
+      { 'f', cmd 'Telescope find_files' },
       { 'g', require('telescope.builtin').live_grep },
       { 'h', require('telescope.builtin').help_tags, { desc = 'Vim help' } },
       { 'o', require('telescope.builtin').oldfiles, { desc = 'Recently opened files' } },
