@@ -58,7 +58,7 @@ in
       ( nerdfonts.override{ fonts = [ "FiraCode" "JetBrainsMono" "IBMPlexMono" ]; } )
       nix-output-monitor
       nmap
-      nodejs
+      nodejs_20
       #openconnect # fails
       pdfgrep
       ripgrep
