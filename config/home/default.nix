@@ -186,12 +186,12 @@ in
         fd = "fd --hidden --follow";
         rm = "rm -i";
         ping = "ping -c 5";
-        la = "exa -la";
-        ls = "exa";
-        ll = "exa -l --sort newest";
+        la = "eza -la";
+        ls = "eza";
+        ll = "eza -l --sort newest";
+        lt = "eza --tree";
         lock = "pmset sleepnow";
         nova = "open -a Nova";
-        #mv = "mv -i";
         mkdir = "mkdir -p";
         wifiname = "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep -e '\\bSSID:' | sed -e 's/^.*SSID: //'";
         ql = "qlmanage -p 2>/dev/null";
@@ -220,7 +220,8 @@ in
         gsw = "git switch";
         gcb = "git switch -c";
         gsc = "git switch -c";
-        hme = "nvim ~/src/weiland/dotfiles/config/home/default.nix";
+        hme = "cd ~/src/weiland/dotfiles/ && nvim config/home/default.nix";
+        hmel = "nvim ~/src/weiland/dotfiles/config/home/default.nix";
         hms = "home-manager switch --flake ~/src/weiland/dotfiles#pw";
         rgi = "rg -i";
         youtube-dl = "yt-dlp";
@@ -278,9 +279,9 @@ in
           '';
         };
         tree = {
-          description = "Tree of directory (aliasing exa)";
+          description = "Tree of directory (aliasing eza)";
           body = ''
-            command exa --tree --all --ignore-glob .git $argv
+            command eza --tree --all --ignore-glob .git $argv
           '';
         };
         lastfm = {
