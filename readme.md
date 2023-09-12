@@ -14,7 +14,7 @@ sh (curl -L https://nixos.org/nix/install | psub)
 ```
 
 <details>
-<summary>or when using _zsh_/_bash_:</summary>
+<summary>or when using zsh/bash:</summary>
 
 ```bash
 sh <(curl -L https://nixos.org/nix/install)
@@ -37,13 +37,15 @@ Now, clone dotfiles:
 Get home-manager using the nix-command feature and flakes.
 
 ```command
-nix build --no-link .#homeConfigurations.jdoe.activationPackage --extra-experimental-features nix-command --extra-experimental-features flakes
+nix build --no-link .#homeConfigurations.pw.activationPackage --extra-experimental-features nix-command --extra-experimental-features flakes
 "$(nix path-info ~/src/weiland/dotfiles#homeConfigurations.pw.activationPackage)"/activate
 ```
 
 Activate home-manager:
 
     home-manager switch --flake .#pw
+
+append `--show-trace` flag, if error occurs.
 
 
 ## Updating nix and the system
@@ -80,7 +82,18 @@ Optimise nix store:
     nix-store --optimise -v
 
 
-#### Error handling
+### Error handling
+
+
+When a drv failed (i.e. during home-manager switch)
+
+#### Find dependency
+
+```sh
+nix-store --query --referrers /nix/store/...FULLPATH
+```
+
+alternatively, use `nix why-depends`
 
 Select a previous home-manager generation:
 
