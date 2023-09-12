@@ -39,6 +39,7 @@ in
 
     packages = with pkgs; [
       any-nix-shell
+      commit-mono # font with ligatures
       curl
       deno
       #docker

@@ -140,16 +140,11 @@ cmd 'unmap Y'
 -- headlines (config with nord theme)
 require('headlines').setup({
     markdown = {
-        headline_highlights = {
-            'Headline1',
-            'Headline2',
-            'Headline3',
-            'Headline4',
-            'Headline5',
-            'Headline6',
-        },
+        headline_highlights = { 'Headline' },
         codeblock_highlight = 'CodeBlock',
         dash_highlight = 'Dash',
+        fat_headline_upper_string = "▃",
+        fat_headline_lower_string = "▃" -- used to be "🬂", (which my font does not display)
         quote_highlight = 'Quote',
     },
 })
