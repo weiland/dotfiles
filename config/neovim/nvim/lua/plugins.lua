@@ -80,9 +80,6 @@ null_ls.setup({
     -- Elixir
     null_ls.builtins.diagnostics.credo,
 
-    -- docker
-    null_ls.builtins.diagnostics.hadolint,
-
     -- gitlint
     null_ls.builtins.diagnostics.gitlint,
 

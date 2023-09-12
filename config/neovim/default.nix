@@ -27,7 +27,7 @@ in {
 
     # cargo # required for https://github.com/jeertmans/languagetool-rust
     gitlint
-    hadolint # docker linting
+    #hadolint # docker linting (failes atm due to ilist-0.4.0.1.drv)
     nil # Nix language server
     nixpkgs-fmt
     # nodePackages.prettier
