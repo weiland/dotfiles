@@ -144,7 +144,7 @@ require('headlines').setup({
         codeblock_highlight = 'CodeBlock',
         dash_highlight = 'Dash',
         fat_headline_upper_string = "▃",
-        fat_headline_lower_string = "▃" -- used to be "🬂", (which my font does not display)
+        fat_headline_lower_string = "▃", -- used to be "🬂", (which my font does not display)
         quote_highlight = 'Quote',
     },
 })
