@@ -127,7 +127,8 @@ in
       nix-direnv.enable = true;
     };
 
-    exa = {
+    # used to be exa which is unmaintained
+    eza = {
       enable = true;
     };
 
