@@ -65,6 +65,7 @@ in
       # (rWrapper.override{ packages = with rPackages; [ tidyverse knitr rtweet rmarkdown instaR ]; } ) # packages don't show up in DataSpell
       shellcheck
       stow
+      # swift-format # is not yet version 5.9
       tealdeer
       terminal-notifier
       tig
