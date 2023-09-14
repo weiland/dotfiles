@@ -107,3 +107,10 @@ home-manager generations
 
 
 The old way: https://nixos.org/manual/nix/unstable/installation/upgrading.html
+
+### Macos SSH
+
+```bash
+cp config/macos/addssh.plist ~/Library/LaunchAgents/addssh.plist
+chmod +x ~/Library/LaunchAgents/addssh.plist
+```
