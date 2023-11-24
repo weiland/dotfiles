@@ -3,7 +3,7 @@
 , lib
 , ...
 }: let
-headlines-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+headlines-nvim = pkgs.vimUtils.buildVimPlugin {
   # name = "headlines-nvim";
   pname = "headlines-nvim";
   version = "2023-03-29";
