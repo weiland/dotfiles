@@ -29,9 +29,10 @@ neogit.setup({})
 
 require('Comment').setup()
 
-require('indent_blankline').setup {
-  show_current_context = true,
-  show_current_context_start = false,
+require('ibl').setup {
+  scope = {
+    show_start = false
+  }
 }
 
 -- easy-align
