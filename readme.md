@@ -1,12 +1,14 @@
-# @weiland dotfiles
+# @weiland's dotfiles
 
-These are my old dotfiles.
+These are my old dotfiles with gnu `stow`.
 
-My new/current ones can be found in the `main` branch.
+My new config can be found at [`nix-config`](https://github.com/weiland/nix-config) 👀
+
+---
 
 ## Prerequisites
 
-Have a look at https://github.com/weiland/mac-setup
+Have a look at https://github.com/weiland/mac-setup to prepare a a mac.
 
 ## Installtion (using GNU stow)
 
