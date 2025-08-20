@@ -1,8 +1,9 @@
-# @weiland's dotfiles
+# @weiland's previous dotfiles
 
-These are my old dotfiles with gnu `stow`.
 
-My new config can be found at [`nix-config`](https://github.com/weiland/nix-config) 👀
+> [!NOTE]
+> These are my __old__ dotfiles with gnu `stow`.
+> My _new config_ can be found at [`nix-config`](https://github.com/weiland/nix-config) 👀
 
 ---
 
@@ -28,7 +29,10 @@ stow -v -t $HOME fish starship git nvim ssh tmux curl
 ## Installation using nix
 
 <details>
-<summary>exapnd on installing nix on macOS</summary>
+<summary>On installing nix on macOS:</summary>
+
+> [!NOTE]
+> This information is a bit out of date.
 
 Install Nix:
 
